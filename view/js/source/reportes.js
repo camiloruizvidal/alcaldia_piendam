@@ -1,5 +1,5 @@
 $(function () {
-    data_select();
+    dependencias();
     VerEstadosAgenda();
     VerVeredas();
     solicitud_search();
@@ -16,6 +16,14 @@ $(function () {
         Actualizar();
     });
 });
+function Detalle(id)
+{
+    $('#myModalDetail').modal('show');
+}
+function dependencias()
+{
+    $('#id_dependencia').load('Ajax/AjaxCargarDependencias_reportes.php');
+}
 function VerVeredas()
 {
     $('#id_vereda').load('Ajax/AjaxSelectVeredas.php');
@@ -28,10 +36,11 @@ function VerVeredas()
 function data_select()
 {
     $.ajax({
-        url: 'Ajax/AjaxTiposSolicitudes.php',
+        url: 'Ajax/AjaxTiposSolicitudesReportes.php',
         async: false,
+        type: 'POST',
+        data: {id_dependencia: $('#id_dependencia').val()},
         success: function (data) {
-            $('#update_id_tipo').html(data);
             $('#filt_id_tipo').html(data);
             $('#id_tipo').html(data.replace('<option value="-1">SELECCIONE</option>', ''));
         }
@@ -82,7 +91,6 @@ function edit(id)
                 {
                     $(name).html(value);
                 }
-                console.log(name + '=' + value);
                 $(name).val(value);
             });
             loadingstart();
@@ -95,8 +103,12 @@ function edit(id)
 }
 function cambios()
 {
-    $('#id_filt_ciudadano,#Fechaini,#Fechafin,#Estado,#filt_id_tipo').change(function ()
+    $('#id_filt_ciudadano,#Fechaini,#Fechafin,#Estado,#filt_id_tipo,#id_dependencia').change(function ()
     {
+        if ($(this).attr('id') === 'id_dependencia')
+        {
+            data_select();
+        }
         CargarSolicitudes();
     });
 }
@@ -141,7 +153,6 @@ function solicitud_search()
     $('#form_search').submit(function (e)
     {
         e.preventDefault();
-        loadingstart();
         $.ajax({
             url: $(this).attr('action'),
             type: 'POST',

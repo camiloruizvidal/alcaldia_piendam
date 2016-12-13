@@ -97,6 +97,20 @@ FROM
         return $Res;
     }
 
+    public function VerTiposPeticionesAll($id_dependencia)
+    {
+        $sql = 'SELECT 
+                    `dependencia_tipo`.`id_dependencia_tipo`,
+                    `dependencia_tipo`.`descripcion`
+                FROM
+                    `dependencia_tipo`
+                WHERE
+                    `dependencia_tipo`.`id_dependencia`=?';
+        $con = App::$base;
+        $Res = $con->Records($sql, array($id_dependencia));
+        return $Res;
+    }
+
     public function VerSolicitantes($busqueda)
     {
         $sql = "SELECT 
@@ -122,6 +136,29 @@ FROM
         $peticion->Save();
     }
 
+    public function CambioEstado($descripcion, $fecha_hora, $id_peticion, $id_peticion_estado_anterior, $id_peticion_estado_nuevo, $id_usuario)
+    {
+        $peticion                              = atable::Make('peticion_control');
+        $peticion->descripcion                 = $descripcion;
+        $peticion->fecha_hora                  = $fecha_hora;
+        $peticion->id_peticion                 = $id_peticion;
+        $peticion->id_peticion_estado_anterior = $id_peticion_estado_anterior;
+        $peticion->id_peticion_estado_nuevo    = $id_peticion_estado_nuevo;
+        $peticion->id_usuario                  = $id_usuario;
+        $peticion->Save();
+    }
+
+    public function cambioEstadoPeticion($id_peticion, $id_estado, $respuesta)
+    {
+        $peticion            = atable::Make('peticion');
+        $peticion->Load("id_peticion = {$id_peticion}");
+        $id_estado_anterior  = $peticion->id_estado;
+        $peticion->id_estado = $id_estado;
+        $peticion->respuesta = $respuesta;
+        $peticion->Save();
+        return $id_estado_anterior;
+    }
+
     public function VerPeticion($id_solicitud)
     {
         $sql = "SELECT 
@@ -140,7 +177,7 @@ FROM
                     `peticion`.`id_tipo`,
                     `usuario`.`id_usuario_tipo`,
                     `usuario`.`nombre`,
-  `peticion`.`id_vereda`
+                    `peticion`.`id_vereda`
                 FROM
                     `peticion_files`
                     RIGHT OUTER JOIN `peticion` ON (`peticion_files`.`id_peticion` = `peticion`.`id_peticion`)

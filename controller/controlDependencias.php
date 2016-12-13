@@ -22,5 +22,11 @@ class controlDependencias
         $Data        = $Dependencia->Dependencias_peticionesxUser($id_usuario);
         return $Data;
     }
+    public function Dependencias_All()//Muestras todas las dependencias 
+    {
+        $Dependencia = new modelDependencia();
+        $Data        = $Dependencia->Dependencias_all();
+        return $Data;
+    }
 
 }

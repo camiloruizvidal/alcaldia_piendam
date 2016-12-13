@@ -38,6 +38,13 @@ class controlPetidion
         return $res;
     }
 
+    public function VerTiposPeticionesAll($id_dependencia)
+    {
+        $peti = new modelPetidion();
+        $res  = $peti->VerTiposPeticionesAll($id_dependencia);
+        return $res;
+    }
+
     public function VerSolicitantes($busqueda)
     {
         $peti = new modelPetidion();
@@ -50,6 +57,16 @@ class controlPetidion
         $peti = new modelPetidion();
         $peti->ActualizarPeticion($id_peticion, $id_estado, $descripcion);
         $user->newusuario($nombre, $apellido, $documento, $telefono, $celular, $correo);
+    }
+
+    public function CambioEstadoPeticion($id_peticion, $id_estado, $descripcion)
+    {
+        @session_start();
+        $id_usuario                  = $_SESSION['id_usuario'];
+        $fecha_hora                  = date('Y-m-d H:i:s');
+        $peti                        = new modelPetidion();
+        $id_peticion_estado_anterior = $peti->cambioEstadoPeticion($id_peticion, $id_estado, $descripcion);
+        $peti->CambioEstado($descripcion, $fecha_hora, $id_peticion, $id_peticion_estado_anterior, $id_estado, $id_usuario);
     }
 
     public function VerPeticion($id_solicitud)

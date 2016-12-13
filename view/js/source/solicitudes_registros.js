@@ -82,7 +82,6 @@ function edit(id)
                 {
                     $(name).html(value);
                 }
-                console.log(name + '=' + value);
                 $(name).val(value);
             });
             loadingstart();

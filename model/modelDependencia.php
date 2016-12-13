@@ -49,5 +49,20 @@ class modelDependencia
         $Res = $con->Records($sql, array($id_usuario));
         return $Res;
     }
+    public function Dependencias_all()
+    {
+        $sql = 'SELECT 
+                `dependencia`.`id_dependencia`,
+                CONCAT_WS(\',\',
+                `dependencia`.`nombre`,
+                `dependencia`.`codigo`) as Nombre
+              FROM
+                `dependencia`
+                ORDER BY
+                2';
+        $con = App::$base;
+        $Res = $con->Records($sql, array());
+        return $Res;
+    }
 
 }

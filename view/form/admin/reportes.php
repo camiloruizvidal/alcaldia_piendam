@@ -50,8 +50,16 @@ $form->create(__FILE__);
                         <select name="Estado" id="Estado" class="form form-control"></select>
                     </div>
                     <div class="form-group col-md-12">
+                        <label><button class="btn btn-danger" type="button" onclick="Limpiar('id_dependencia');"><span class="glyphicon glyphicon-remove"></span></button>Dependencia</label>
+                        <select name="id_dependencia" id="id_dependencia" class="form form-control">
+                            <option value="-1">Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
                         <label><button class="btn btn-danger" type="button" onclick="Limpiar('filt_id_tipo');"><span class="glyphicon glyphicon-remove"></span></button>Tipo de peticion</label>
-                        <select name="filt_id_tipo" id="filt_id_tipo" class="form form-control"></select>
+                        <select name="filt_id_tipo" id="filt_id_tipo" class="form form-control">
+                            <option value="-1">SELECCIONE</option>
+                        </select>
                     </div>
                     <a href="#" id="imp_inf" class="btnPrint"><button class="form form-control btn btn-primary"><i class="glyphicon glyphicon-print"></i> imprimr</button></a>
                 </div>  
@@ -70,33 +78,15 @@ $form->create(__FILE__);
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="color: #fff;background-color: #d9534f;border-color: #d43f3a;">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"></h4>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="myModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+</div><div class="modal fade" id="myModalDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header"  style="color: #fff;background-color: #5cb85c;border-color: #4cae4c;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Editar</h4>
+                <h4 class="modal-title" id="myModalLabel">Detalle</h4>
             </div>
             <div class="modal-body">
-               
+
             </div>
             <div class="modal-footer">
                 <div class="col-xs-6">
