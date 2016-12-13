@@ -261,7 +261,7 @@ FROM
                   CONCAT_WS(' ', `usuario`.`nombre`, `usuario`.`apellido`) AS `ciudadano`,
                   `peticion`.`fecha_hora`,
                   `peticion_estado`.`descripcion` AS `estado`,
-                  `peticion`.`descripcion` AS `detalle`,
+                  CONCAT(SUBSTRING(`peticion`.`descripcion` FROM 1 FOR 10),'...') AS `detalle`,
                 `dependencia_tipo`.`descripcion` as dependencia_tipo_descripcion
                 FROM
                   `peticion_files`

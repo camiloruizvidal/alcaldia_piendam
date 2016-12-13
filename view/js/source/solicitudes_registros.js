@@ -22,6 +22,19 @@ function actualizar_cambios()
     $('#cambio_solicitud').submit(function (e)
     {
         e.preventDefault();
+        loadingstart();
+        $.ajax({
+            url: 'Ajax/AjaxCambiarEstadoPeticion.php',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function (data) {
+                $('#myModalUpdate').modal('hide');
+                CargarSolicitudes();
+            },
+            complete: function (jqXHR, textStatus) {
+                loadingstop();
+            }
+        })
     });
 }
 function CambioEstado()
