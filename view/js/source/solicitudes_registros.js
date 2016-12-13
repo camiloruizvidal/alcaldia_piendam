@@ -1,4 +1,5 @@
 $(function () {
+    actualizar_cambios();
     data_select();
     VerEstadosAgenda();
     VerVeredas();
@@ -16,6 +17,18 @@ $(function () {
         Actualizar();
     });
 });
+function actualizar_cambios()
+{
+    $('#cambio_solicitud').submit(function (e)
+    {
+        e.preventDefault();
+    });
+}
+function CambioEstado()
+{
+    $('#myModalEdit').modal('hide');
+    $('#myModalUpdate').modal('show');
+}
 function VerVeredas()
 {
     $('#id_vereda').load('Ajax/AjaxSelectVeredas.php');
@@ -75,6 +88,10 @@ function edit(id)
         type: 'POST',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
+            $('#cambio_estado_id_peticion').val(data.id_peticion);
+            $('#detalleSolicitud').html(data.detalle);
+            $('#cambio_estado_id_estados').val(data.id_peticion_estado);
+            $('#nombreciudadano').html(data.nombre + ' ' + data.apellido);
             $.each(data, function (index, value)
             {
                 var name = '#update_' + index;
@@ -110,6 +127,7 @@ function VerEstadosAgenda()
         success: function (data)
         {
             $('#Estado').html(data);
+            $('#cambio_estado_id_estados').html(data);
             CargarSolicitudes();
         }
     });

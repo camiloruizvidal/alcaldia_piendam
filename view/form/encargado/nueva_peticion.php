@@ -11,6 +11,9 @@ $form->create(__FILE__);
     {
         background-color: #e5e5e5;
     }
+    .ui-tabs .ui-tabs-nav{
+        padding: 0;
+    }
 </style>
 <div class="col-md-3">
     <div id="tabs">
@@ -123,10 +126,55 @@ $form->create(__FILE__);
         </div>
     </div>
 </div>
+<div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="color: #fff;background-color: #5cb85c;border-color: #4cae4c;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Realizar el cambio de solicitud</h4>
+            </div>
+            <form id="cambio_solicitud">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="col-md-12">
+                            <label>Ciudadano</label> <p id="nombreciudadano"></p>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Detalle</label>
+                            <p id="detalleSolicitud"></p>
+                        </div>
+                        <input type="hidden" id="cambio_estado_id_peticion" name="cambio_estado_id_peticion"/>
+                        <div class="col-md-12">
+                            <label>Estados</label>
+                            <select class="form form-control"  id="cambio_estado_id_estados" name="cambio_estado_id_estados">
+
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Descripción</label>
+                            <textarea style="margin: 0px -2px 0px 0px;width: 508px;height: 156px !important;" class="form form-control" id="cambio_estado_descripcion" name="cambio_estado_descripcion"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-xs-6">
+                        <button type="button" class="form form-control btn btn-default" data-dismiss="modal">Close</button>
+
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="submit" class="form form-control btn btn-primary">GuardarCambios</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 <div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="color: #fff;background-color: #d9534f;border-color: #d43f3a;">
+            <div class="modal-header" style="color: #fff;background-color: #ec971f;border-color: #d58512;">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel"></h4>
             </div>
@@ -134,8 +182,13 @@ $form->create(__FILE__);
                 ...
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="col-xs-6">
+                    <button type="button" class="form form-control btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+                <div class="col-xs-6">
+                    <button type="button" class="form form-control btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
@@ -156,9 +209,7 @@ $form->create(__FILE__);
                         </div> 
                         <div class="col-md-6">
                             <label>Estado de solicitud</label>
-                            <select class="form form-control" id="update_id_estado"  name="update_id_estado">
-                                <option value="">Prueba</option>
-                            </select>
+                            <input readonly="readonly" class="form form-control" id="update_estado"  name="update_estado"/>
                         </div> 
                         <div class="col-md-6">
                             <label>Documento</label>
@@ -205,6 +256,10 @@ $form->create(__FILE__);
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <button onclick="CambioEstado()" class="form form-control btn btn-warning"><i class="glyphicon glyphicon-check"></i> Cambiar Estado</button>
+                        </div>
+
                         <div class="col-md-12">
                             <label>Descripcion</label>
                             <textarea id="update_detalle" style="height: 100px !important;" name="update_detalle" class="form form-control" rows="20" placeholder="Ingrese la descripción de la solicitud"></textarea>
