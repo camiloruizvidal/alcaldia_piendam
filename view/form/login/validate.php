@@ -1,10 +1,10 @@
 <?php
 @session_start();
+
 if (isset($_GET['cerrarsesion']))
 {
     $_SESSION = array();
     session_destroy();
-    var_dump($_SESSION);
     exit();
 }
 $url = './login';
