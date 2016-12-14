@@ -1,4 +1,5 @@
 <?php
+
 @include_once '../../../model/modelUsuario.php';
 @include_once '../../model/modelUsuario.php';
 
@@ -12,6 +13,46 @@ class controlusuario
         unset($_SESSION);
         $_SESSION = FALSE;
         header('Location: ./login');
+    }
+
+    public function CambiarDatosUsuario($telefono, $celular, $correo, $login, $pass)
+    {
+        @session_start();
+        $id_usuario = $_SESSION['id_usuario'];
+        $user       = new modelUsuario();
+        $pass       = md5($pass);
+        return $user->CambiarDatosUsuario($id_usuario, $telefono, $celular, $correo, $login, $pass);
+    }
+
+    public function CambiarDatosUsuarioNoPass($telefono, $celular, $correo, $login)
+    {
+        @session_start();
+        $id_usuario = $_SESSION['id_usuario'];
+        $user       = new modelUsuario();
+        return $user->CambiarDatosUsuarioNoPass($id_usuario, $telefono, $celular, $correo, $login);
+    }
+
+    public function SiValidarDatosUsuario($login, $password)
+    {
+        @session_start();
+        $id_usuario = $_SESSION['id_usuario'];
+        $user       = new modelUsuario();
+        $data       = $user->ValidarSesion($login, $password);
+        if (count($data) > 0)
+        {
+            if ($data['id_usuario'] === $id_usuario)
+            {
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     public function UsuarioCorrecto($ArrayPerfilesUsuario)

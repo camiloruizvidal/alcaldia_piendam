@@ -1,7 +1,21 @@
 <?php
+@session_start();
+$url = '';
+switch ($_SESSION['descripcion_tipo'])
+{
+    case 'Encargado':$url = 'encargado';
+        break;
+    case 'SuperUser':$url = '';
+        break;
+    case 'Solicitantes':$url = 'ciudadano';
+        break;
+    case 'Administrador':$url = 'admin';
+        break;
+}
+$url     = $url . '.php';
 include '../../../controller/controlusuario.php';
 $Validar = new controlusuario();
-$Validar->UsuarioCorrecto(array('Solicitantes'));
+$Validar->UsuarioCorrecto(array('Solicitantes', 'Administrador', 'Encargado'));
 ?><!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,6 +27,7 @@ $Validar->UsuarioCorrecto(array('Solicitantes'));
         <link rel="stylesheet" href="css/jquery/jquery-ui.min.css">
         <link rel="stylesheet" href="css/jquery/jquery-ui.theme.min.css">
         <link rel="stylesheet" href="css/source/plantilla_admin.css">
+
         <#--css--#>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
         <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
@@ -29,11 +44,10 @@ $Validar->UsuarioCorrecto(array('Solicitantes'));
     <body>
         <!-- Fixed navbar -->
         <?php
-        include_once '../../plantillas/menu/ciudadano.php';
+        include_once '../../plantillas/menu/' . $url;
         ?>
         <div class="container-fluid">
-            
-               <#--contenido--#>
+            <#--contenido--#>
         </div>
     </body>
 </html>

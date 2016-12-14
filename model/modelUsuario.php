@@ -6,7 +6,38 @@ include_once Config::$home_bin . Config::$ds . 'db' . Config::$ds . 'active_tabl
 class modelUsuario
 {
 
-    public function newusuario($nombre, $apellido, $documento, $telefono, $celular, $correo, $login='', $pass='', $id_usuario_tipo='')
+    public function CambiarDatosUsuarioNoPass($id_usuario, $telefono, $celular, $correo, $login)
+    {
+        $usuario = atable::Make('usuario');
+        $usuario->Load("id_usuario = {$id_usuario} and login = {$login}");
+        if (!is_null($usuario->id_usuario))
+        {
+            $usuario->correo   = $correo;
+            $usuario->celular  = $celular;
+            $usuario->telefono = $telefono;
+            $usuario->Save();
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    public function CambiarDatosUsuario($id_usuario, $telefono, $celular, $correo, $login, $pass)
+    {
+        $usuario = atable::Make('usuario');
+        $usuario->Load("id_usuario = {$id_usuario} and login = {$login}");
+        if (!is_null($usuario->id_usuario))
+        {
+            $usuario->pass     = $pass;
+            $usuario->correo   = $correo;
+            $usuario->celular  = $celular;
+            $usuario->telefono = $telefono;
+            $usuario->Save();
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    public function newusuario($nombre, $apellido, $documento, $telefono, $celular, $correo, $login = '', $pass = '', $id_usuario_tipo = '')
     {
         $usuario = atable::Make('usuario');
         $usuario->Load("documento = {$documento}");

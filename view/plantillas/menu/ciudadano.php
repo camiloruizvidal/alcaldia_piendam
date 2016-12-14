@@ -20,7 +20,7 @@
                         echo strtoupper($_SESSION['nombre']) . ' ' . strtoupper($_SESSION['apellido']);
                         ?> <i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="glyphicon glyphicon-cog"></i> configurar</a></li>
+                        <li><a href="configuration"><i class="glyphicon glyphicon-cog"></i> configurar</a></li>
                         <li><a href="logout"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a></li>
                     </ul>
                 </li>

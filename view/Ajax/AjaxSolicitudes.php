@@ -19,17 +19,16 @@ if ($_POST)
 if ($_GET)
 {
     extract($_GET);
-    $Datos = $peti->VerPeticiones($id_filt_ciudadano, $filt_ciudadano, $Fechaini, $Fechafin, $Estado, $filt_id_tipo);
-    $data  = array();
+    include '../../model/modelConfig.php';
+    $con        = new modelConfig();
+    $Encabezado = $con->VerValue('formato_encabezado');
+    $Datos      = $peti->VerPeticiones($id_filt_ciudadano, $filt_ciudadano, $Fechaini, $Fechafin, $Estado, $filt_id_tipo);
+    $data       = array();
     foreach ($Datos as $temp)
     {
         $data[] = array($temp['ciudadano'], $temp['fecha_hora'], $temp['estado'], $temp['dependencia_tipo_descripcion']);
     }
-    echo '<table width="100%">'
-    . '<tr>'
-    . '<td style="width: 10%;text-align: right;"><img src="http://img.webme.com/pic/p/piendamoenlinea/escudo_piendamo_color.jpg" style="width: 130px;/* text-align: right; */"></td>'
-    . '<td><center><h1>Informe de solicitudes</h1></center></td><tr></table>';
-    echo '<h4>Criterio de búsqueda</h4>';
+    echo $Encabezado.'<br>';
     if ($filt_ciudadano != '')
     {
         echo '<strong>Ciudadano</strong>: ' . $filt_ciudadano . '<br>';

@@ -12,14 +12,6 @@
                     <ul class="nav navbar-nav">
                         <li id="id_peticiones"><a href="nueva_peticion">Peticiones</a></li>
                         <ul class="nav navbar-nav navbar-right">
-                            <li  id="id_informe">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Informes<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="informes_peticion"> Peticiones mas hechas </a></li>
-                                    <li><a href="informes_can_acep"> peticiones mas aceptada y canceladas</a></li>
-                                    <li><a href="informes_rangos"> rango de respuesta</a></li>
-                                </ul>
-                            </li>
                             <li id="id_configuracion"><a href="sistema"> Configuracion</a></li>
                         </ul>
                     </ul>
@@ -30,7 +22,7 @@
                                 echo strtoupper($_SESSION['nombre']) . ' ' . strtoupper($_SESSION['apellido']);
                                 ?> <i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>                            
                             <ul class="dropdown-menu">
-                                <li><a href="#"><i class="glyphicon glyphicon-cog"></i> configurar</a></li>
+                                <li><a href="configuration"><i class="glyphicon glyphicon-cog"></i> configurar</a></li>
                                 <li><a href="logout"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a></li>
                             </ul>
                         </li>
