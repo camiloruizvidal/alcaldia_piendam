@@ -6,14 +6,48 @@ include_once Config::$home_bin . Config::$ds . 'db' . Config::$ds . 'active_tabl
 class modelPetidion
 {
 
+    private $Log;
+
+    public function __construct()
+    {
+        include_once '../../controller/controlLog.php';
+        $this->Log = new controlLog();
+    }
+
+    public function VerEstadosPeticiones($id_peticion)
+    {
+        $sql = 'SELECT 
+                    
+                    DATE_FORMAT(`peticion_control`.`fecha_hora`,\'%Y-%m-%d %h:%i:%s %p\') AS `fecha_hora_cambio_estado`,
+                    `peticion_estado`.`descripcion` AS `estado_anterior`,
+                    `peticion_estado1`.`descripcion` AS `estado_nuevo`,
+                    CONCAT_WS(\' \', `usuario`.`nombre`, `usuario`.`apellido`) AS `usuario_cambio`,
+                      `peticion_control`.`descripcion` AS `razon_cambio`
+                  FROM
+                    `peticion_control`
+                    INNER JOIN `peticion_estado` ON (`peticion_control`.`id_peticion_estado_anterior` = `peticion_estado`.`id_peticion_estado`)
+                    INNER JOIN `peticion_estado` `peticion_estado1` ON (`peticion_control`.`id_peticion_estado_nuevo` = `peticion_estado1`.`id_peticion_estado`)
+                    INNER JOIN `usuario` ON (`peticion_control`.`id_usuario` = `usuario`.`id_usuario`)
+                  WHERE
+                    `peticion_control`.`id_peticion` = ?
+                    ORDER BY
+                    2';
+        $con = App::$base;
+        $Res = $con->Records($sql, array($id_peticion));
+        return $Res;
+    }
+
     public function EditTipoPeticion($id_dependencia_tipo, $descripcion)
     {
+
         $peticion = atable::Make('dependencia_tipo');
         $peticion->Load("id_dependencia_tipo={$id_dependencia_tipo}");
         if (!is_null($peticion->id_dependencia_tipo))
         {
+            $before                = $peticion->_original;
             $peticion->descripcion = $descripcion;
             $peticion->Save();
+            $this->Log->update($peticion->_table, $peticion->_original, $before);
         }
     }
 
@@ -23,6 +57,7 @@ class modelPetidion
         $peticion->id_dependencia = $id_dependencia;
         $peticion->descripcion    = $descripcion;
         $peticion->Save();
+        $this->Log->Insert($peticion->_table, json_encode($peticion->_original));
     }
 
     public function VerPeticionesCiudadano($id_usuario, $id_estado, $id_tipo, $id_dependencia_tipo, $fecha_ini, $fecha_fin)
@@ -127,18 +162,22 @@ FROM
         return $Res;
     }
 
-    public function ActualizarPeticion($id_peticion, $id_estado, $descripcion)
+    public function ActualizarPeticion($id_peticion, $id_estado, $respuesta)
     {
-        $peticion              = atable::Make('peticion');
+        $peticion                        = atable::Make('peticion');
         $peticion->Load("id_peticion={$id_peticion}");
-        $peticion->id_estado   = $id_estado;
-        $peticion->descripcion = $descripcion;
+        $data_before                     = $peticion->_original;
+        $peticion->id_estado             = $id_estado;
+        $peticion->respuesta             = $respuesta;
+        $peticion->fecha_hora_respuestad = date('Y-m-d h:i:s');
         $peticion->Save();
+        $this->Log->update($peticion->_table, $peticion->_original, $data_before);
     }
 
     public function CambioEstado($descripcion, $fecha_hora, $id_peticion, $id_peticion_estado_anterior, $id_peticion_estado_nuevo, $id_usuario)
     {
         $peticion                              = atable::Make('peticion_control');
+        $data_before                           = $peticion->_original;
         $peticion->descripcion                 = $descripcion;
         $peticion->fecha_hora                  = $fecha_hora;
         $peticion->id_peticion                 = $id_peticion;
@@ -146,16 +185,20 @@ FROM
         $peticion->id_peticion_estado_nuevo    = $id_peticion_estado_nuevo;
         $peticion->id_usuario                  = $id_usuario;
         $peticion->Save();
+        $this->Log->update($peticion->_table, $peticion->_original, $data_before);
     }
 
-    public function cambioEstadoPeticion($id_peticion, $id_estado, $respuesta)
+    public function cambioEstadoPeticion($id_peticion, $id_estado, $respuesta, $fecha_hora)
     {
-        $peticion            = atable::Make('peticion');
+        $peticion                        = atable::Make('peticion');
         $peticion->Load("id_peticion = {$id_peticion}");
-        $id_estado_anterior  = $peticion->id_estado;
-        $peticion->id_estado = $id_estado;
-        $peticion->respuesta = $respuesta;
+        $data_before                     = $peticion->_original;
+        $id_estado_anterior              = $peticion->id_estado;
+        $peticion->fecha_hora_respuestad = $fecha_hora;
+        $peticion->id_estado             = $id_estado;
+        $peticion->respuesta             = $respuesta;
         $peticion->Save();
+        $this->Log->update($peticion->_table, $peticion->_original, $data_before);
         return $id_estado_anterior;
     }
 
@@ -213,6 +256,7 @@ FROM
         $peticion->descripcion = $descripcion;
         $peticion->id_vereda   = $id_vereda;
         $peticion->Save();
+        $this->Log->Insert($peticion->_table, $peticion->_original);
         return $peticion->id_peticion;
     }
 
