@@ -18,7 +18,17 @@ $(function () {
 });
 function Detalle(id)
 {
-    $('#myModalDetail').modal('show');
+    $.ajax({
+        url: 'Ajax/AjaxVerCambiosEstados.php',
+        type: 'POST',
+        data: {id_peticion: id},
+        success: function (data)
+        {
+            $('#info_reporte').html(data);
+            $('#myModalDetail').modal('show');
+        }
+    });
+
 }
 function dependencias()
 {

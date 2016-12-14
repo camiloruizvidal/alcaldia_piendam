@@ -11,6 +11,10 @@ $form->create(__FILE__);
     {
         background-color: #e5e5e5;
     }
+    #info_reporte table
+    {
+        font-size: 14px;
+    }    
 </style>
 <div class="col-md-3">
     <div id="tabs">
@@ -86,14 +90,11 @@ $form->create(__FILE__);
                 <h4 class="modal-title" id="myModalLabel">Detalle</h4>
             </div>
             <div class="modal-body">
-
+                <div id="info_reporte"></div>
             </div>
             <div class="modal-footer">
-                <div class="col-xs-6">
+                <div class="col-xs-12">
                     <button type="button" class="btn btn-success form form-control" data-dismiss="modal">Cerrar</button>
-                </div>
-                <div class="col-xs-6">
-                    <button type="button" id="actualizar" class="btn btn-primary form form-control">Guardar Cambios</button>
                 </div>
             </div>
         </div>

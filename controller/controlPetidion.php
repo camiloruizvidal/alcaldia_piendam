@@ -6,6 +6,12 @@ include_once '../../model/modelUsuario.php';
 class controlPetidion
 {
 
+    public function VerEstadosPeticiones($id_peticion)
+    {
+        $peti = new modelPetidion();
+        return $peti->VerEstadosPeticiones($id_peticion);
+    }
+
     public function NuevoTipoPeticion($nombre_tipo_peticion)
     {
         $peti           = new modelPetidion();
