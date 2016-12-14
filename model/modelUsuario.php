@@ -6,16 +6,26 @@ include_once Config::$home_bin . Config::$ds . 'db' . Config::$ds . 'active_tabl
 class modelUsuario
 {
 
+    private $Log;
+
+    public function __construct()
+    {
+        include_once '../../controller/controlLog.php';
+        $this->Log = new controlLog();
+    }
+
     public function CambiarDatosUsuarioNoPass($id_usuario, $telefono, $celular, $correo, $login)
     {
         $usuario = atable::Make('usuario');
         $usuario->Load("id_usuario = {$id_usuario} and login = {$login}");
         if (!is_null($usuario->id_usuario))
         {
+            $data_before       = $usuario->_original;
             $usuario->correo   = $correo;
             $usuario->celular  = $celular;
             $usuario->telefono = $telefono;
             $usuario->Save();
+            $this->Log->update($usuario->_table, $usuario->_original, $data_before);
             return TRUE;
         }
         return FALSE;
@@ -27,11 +37,13 @@ class modelUsuario
         $usuario->Load("id_usuario = {$id_usuario} and login = {$login}");
         if (!is_null($usuario->id_usuario))
         {
+            $data_before       = $usuario->_original;
             $usuario->pass     = $pass;
             $usuario->correo   = $correo;
             $usuario->celular  = $celular;
             $usuario->telefono = $telefono;
             $usuario->Save();
+            $this->Log->update($usuario->_table, $usuario->_original, $data_before);
             return TRUE;
         }
         return FALSE;
@@ -40,6 +52,7 @@ class modelUsuario
     public function newusuario($nombre, $apellido, $documento, $telefono, $celular, $correo, $login = '', $pass = '', $id_usuario_tipo = '')
     {
         $usuario = atable::Make('usuario');
+        $this->Log->Insert($usuario->_table, $usuario->_original);
         $usuario->Load("documento = {$documento}");
         if (is_null($usuario->id_usuario))
         {

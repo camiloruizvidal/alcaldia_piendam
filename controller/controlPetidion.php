@@ -71,7 +71,7 @@ class controlPetidion
         $id_usuario                  = $_SESSION['id_usuario'];
         $fecha_hora                  = date('Y-m-d H:i:s');
         $peti                        = new modelPetidion();
-        $id_peticion_estado_anterior = $peti->cambioEstadoPeticion($id_peticion, $id_estado, $descripcion);
+        $id_peticion_estado_anterior = $peti->cambioEstadoPeticion($id_peticion, $id_estado, $descripcion,$fecha_hora);
         $peti->CambioEstado($descripcion, $fecha_hora, $id_peticion, $id_peticion_estado_anterior, $id_estado, $id_usuario);
     }
 

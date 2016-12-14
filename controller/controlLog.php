@@ -19,23 +19,28 @@ class controlLog
         $this->Log        = new modelLogs();
     }
 
-    public function Insert($data_after, $table)
+    public function Insert($table, $data_after)
     {
+        $data_after = json_encode($data_after);
         $this->Log->InserLogs($this->id_user, $this->fecha_hora, $this->ip, 'insertar', $data_after, NULL, $table);
     }
 
-    public function update($data_after, $data_before, $table)
+    public function update($table, $data_after, $data_before)
     {
+        $data_before = json_encode($data_before);
+        $data_after  = json_encode($data_after);
         $this->Log->InserLogs($this->id_user, $this->fecha_hora, $this->ip, 'actualizar', $data_after, $data_before, $table);
     }
 
-    public function delete($data_before, $table)
+    public function delete($table, $data_before)
     {
+        $data_before = json_encode($data_before);
         $this->Log->InserLogs($this->id_user, $this->fecha_hora, $this->ip, 'borrar', NULL, $data_before, $table);
     }
 
-    public function create($data_after, $table)
+    public function create($table, $data_after)
     {
+        $data_after = json_encode($data_after);
         $this->Log->InserLogs($this->id_user, $this->fecha_hora, $this->ip, 'crear', $data_after, NULL, $table);
     }
 
