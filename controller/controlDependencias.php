@@ -5,6 +5,12 @@ include_once '../../model/modelDependencia.php';
 class controlDependencias
 {
 
+    public function DependenciaUsuario($id_dependencia, $id_usuario)
+    {
+        $Dependencia = new modelDependencia();
+        $Dependencia->DependenciaUsuario($id_dependencia, $id_usuario);
+    }
+
     public function TiposDependencias($id_dependencia)
     {
         $Dependencia = new modelDependencia();
@@ -22,6 +28,7 @@ class controlDependencias
         $Data        = $Dependencia->Dependencias_peticionesxUser($id_usuario);
         return $Data;
     }
+
     public function Dependencias_All()//Muestras todas las dependencias 
     {
         $Dependencia = new modelDependencia();

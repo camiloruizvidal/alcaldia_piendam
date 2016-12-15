@@ -10,6 +10,16 @@ class controlLog
     private $fecha_hora;
     private $Log;
 
+    private function JsonLogs($table, $Datos)
+    {
+        $columns = $this->Log->FieldsColumns($table);
+        $Res     = array();
+        for ($i = 0; $i < count($Datos); $i++)
+        {
+            $Res[$columns[$i]] = $Datos[$i];
+        }
+    }
+
     public function __construct()
     {
         @session_start();
@@ -21,7 +31,7 @@ class controlLog
 
     public function Insert($table, $data_after)
     {
-        $data_after = json_encode($data_after);
+        $data_after = $this->JsonLogs($table, $data_after);
         $this->Log->InserLogs($this->id_user, $this->fecha_hora, $this->ip, 'insertar', $data_after, NULL, $table);
     }
 

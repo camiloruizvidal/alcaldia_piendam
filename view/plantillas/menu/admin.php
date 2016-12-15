@@ -13,7 +13,6 @@
             <ul class="nav navbar-nav">
                 <li id="id_peticiones"><a href="reportes">Reportes</a></li>
                 <li id="admin_users"><a href="admin_users">Administrador de usuarios</a></li>
-                <li id="admin_logs"><a href="logs">Ver logs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">                  

@@ -3,7 +3,7 @@
 class modelLogs
 {
 
-    private function FieldsColumns($_table)
+    public function FieldsColumns($_table)
     {
         $sql  = 'SHOW COLUMNS FROM `' . $_table . '`';
         $con  = App::$base;
@@ -13,21 +13,22 @@ class modelLogs
         {
             $data[] = ($temp["Field"]);
         }
-        return json_encode($data, TRUE);
+        return $data;
     }
 
     public function InserLogs($id_user, $fecha_hora, $ip, $funcion, $data_after, $data_before, $table)
     {
-        $fields           = $this->FieldsColumns($table);
-        $sys              = atable::Make('tbl_sys_log');
-        $sys->id_user     = $id_user;
-        $sys->fecha_hora  = $fecha_hora;
-        $sys->ip          = $ip;
-        $sys->funcion     = $funcion;
-        $sys->data_after  = '{' . $fields . ',' . $data_after . '}';
-        $sys->data_before = '{' . $fields . ' ' . $data_before . '}';
-        $sys->table_db    = $table;
-        $sys->Save();
+        /*
+          $sys              = atable::Make('tbl_sys_log');
+          $sys->id_user     = $id_user;
+          $sys->fecha_hora  = $fecha_hora;
+          $sys->ip          = $ip;
+          $sys->funcion     = $funcion;
+          $sys->data_after  = '{' . $fields . ',' . $data_after . '}';
+          $sys->data_before = '{' . $fields . ' ' . $data_before . '}';
+          $sys->table_db    = $table;
+          $sys->Save();
+         */
     }
 
     public function select($id_usuario, $FechaInicio, $FechaFin)

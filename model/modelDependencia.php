@@ -49,6 +49,7 @@ class modelDependencia
         $Res = $con->Records($sql, array($id_usuario));
         return $Res;
     }
+
     public function Dependencias_all()
     {
         $sql = 'SELECT 
@@ -63,6 +64,14 @@ class modelDependencia
         $con = App::$base;
         $Res = $con->Records($sql, array());
         return $Res;
+    }
+
+    public function DependenciaUsuario($id_dependencia, $id_usuario_encargado)
+    {
+        $dependencia                       = atable::Make('dependencia_encargado');
+        $dependencia->id_usuario_encargado = $id_usuario_encargado;
+        $dependencia->id_dependencia       = $id_dependencia;
+        $dependencia->Save();
     }
 
 }

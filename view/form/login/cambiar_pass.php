@@ -32,7 +32,7 @@ $form->create(__FILE__);
 </script>
 <div class="container">
     <form id="editar_usuario"> 
-        <div class="panel panel-primary">
+        <div class="panel panel-success">
             <div class="panel-heading">
                 Datos de usuario
             </div>

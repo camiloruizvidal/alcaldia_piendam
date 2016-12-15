@@ -57,7 +57,7 @@ class modelPetidion
         $peticion->id_dependencia = $id_dependencia;
         $peticion->descripcion    = $descripcion;
         $peticion->Save();
-        $this->Log->Insert($peticion->_table, json_encode($peticion->_original));
+        $this->Log->Insert($peticion->_table, $peticion->_original);
     }
 
     public function VerPeticionesCiudadano($id_usuario, $id_estado, $id_tipo, $id_dependencia_tipo, $fecha_ini, $fecha_fin)

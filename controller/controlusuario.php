@@ -6,6 +6,33 @@
 class controlusuario
 {
 
+    public function ActualizarUsuario($update_id_usuario, $update_nombre, $update_apellido, $update_documento, $update_telefono, $update_celular, $update_correo, $update_id_usuario_tipo)
+    {
+        $user = new modelUsuario();
+        $user->ActualizarUsuario($update_id_usuario, $update_nombre, $update_apellido, $update_documento, $update_telefono, $update_celular, $update_correo, $update_id_usuario_tipo);
+    }
+
+    public function VerTiposUsuarios()
+    {
+        $user = new modelUsuario();
+        $Data = $user->VerTiposUsuarios();
+        return $Data;
+    }
+
+    public function VerUsuarioId($id)
+    {
+        $user = new modelUsuario();
+        $Data = $user->VerUsuarioId($id);
+        return $Data;
+    }
+
+    public function VerUsuariosSistema()
+    {
+        $user = new modelUsuario();
+        $Data = $user->VerUsuariosSistema();
+        return $Data;
+    }
+
     public function CerrarSession()
     {
         @session_start();

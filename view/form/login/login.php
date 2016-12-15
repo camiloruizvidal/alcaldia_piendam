@@ -16,7 +16,7 @@
     <body>
         <div class="container-fluid">
             <form id="form" class="login-form">
-                <h1>CRV SSP</h1>
+                <center><a href="http://piendamo-cauca.gov.co/Paginas/default.aspx" target="_blank"><img src="img/Piendamo-Tunia-Foot.png"></a></center>
                 <div class="form-group ">
                     <input type="text" class="form-control" placeholder="Numero de documento" id="UserName">
                     <i class="fa fa-user"></i>

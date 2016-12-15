@@ -73,7 +73,7 @@ $form->create(__FILE__);
     </div>
 </div>
 <div class="col-md-9">
-    <div class="panel panel-primary">
+    <div class="panel panel-success">
         <div class="panel panel-heading">
             Solicitudes
         </div>
