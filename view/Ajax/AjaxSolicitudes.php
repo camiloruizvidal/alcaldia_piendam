@@ -7,6 +7,10 @@ $peti   = new controlPetidion();
 
 if ($_POST)
 {
+	if(!isset($_POST['filt_id_tipo']))
+	{
+		exit('No hay tipos de peticiones registrada. Dirijase a <a href="sistema">configuracion</a>.');
+	}
 #=======================================VALIDACION DE SEGURIDAD=======================================#
     include_once '../../controller/security_session.php';
     validarPost(array("id_filt_ciudadano", "filt_ciudadano", "Fechaini", "Fechafin", "Estado", 'filt_id_tipo'));
