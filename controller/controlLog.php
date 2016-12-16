@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(0);
 include_once '../../model/modelLogs.php';
 
 class controlLog

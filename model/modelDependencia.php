@@ -6,6 +6,14 @@ include_once Config::$home_bin . Config::$ds . 'db' . Config::$ds . 'active_tabl
 class modelDependencia
 {
 
+    public function NewDependencia($nombre, $codigo)
+    {
+        $dependencia         = atable::Make('dependencia');
+        $dependencia->nombre = $nombre;
+        $dependencia->codigo = $codigo;
+        $dependencia->Save();
+    }
+
     public function TiposDependencias($id_usuario, $id_dependencia)
     {
         $sql = 'SELECT 
@@ -54,9 +62,23 @@ class modelDependencia
     {
         $sql = 'SELECT 
                 `dependencia`.`id_dependencia`,
-                CONCAT_WS(\',\',
                 `dependencia`.`nombre`,
-                `dependencia`.`codigo`) as Nombre
+                `dependencia`.`codigo`
+              FROM
+                `dependencia`
+                ORDER BY
+                2';
+        $con = App::$base;
+        $Res = $con->Records($sql, array());
+        return $Res;
+    }
+
+    public function Dependencias_all_cod()
+    {
+        $sql = 'SELECT 
+                `dependencia`.`id_dependencia`,
+                `dependencia`.`nombre`,
+                `dependencia`.`codigo`
               FROM
                 `dependencia`
                 ORDER BY
@@ -72,6 +94,18 @@ class modelDependencia
         $dependencia->id_usuario_encargado = $id_usuario_encargado;
         $dependencia->id_dependencia       = $id_dependencia;
         $dependencia->Save();
+    }
+
+    public function EditarDependencia($id_dependencia, $nombre, $codigo)
+    {
+        $dependencia = atable::Make('dependencia');
+        $dependencia->Load("id_dependencia = {$id_dependencia}");
+        if (!is_null($dependencia->id_dependencia))
+        {
+            $dependencia->nombre = $nombre;
+            $dependencia->codigo = $codigo;
+            $dependencia->Save();
+        }
     }
 
 }

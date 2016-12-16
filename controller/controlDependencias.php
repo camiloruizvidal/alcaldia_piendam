@@ -5,10 +5,22 @@ include_once '../../model/modelDependencia.php';
 class controlDependencias
 {
 
+    public function NewDependencia($descripcion, $codigo)
+    {
+        $Dependencia = new modelDependencia();
+        $Dependencia->NewDependencia($descripcion, $codigo);
+    }
+
     public function DependenciaUsuario($id_dependencia, $id_usuario)
     {
         $Dependencia = new modelDependencia();
         $Dependencia->DependenciaUsuario($id_dependencia, $id_usuario);
+    }
+
+    public function EditarDependencia($id_dependencia, $descripcion, $codigo)
+    {
+        $Dependencia = new modelDependencia();
+        $Dependencia->EditarDependencia($id_dependencia, $descripcion, $codigo);
     }
 
     public function TiposDependencias($id_dependencia)
@@ -33,6 +45,13 @@ class controlDependencias
     {
         $Dependencia = new modelDependencia();
         $Data        = $Dependencia->Dependencias_all();
+        return $Data;
+    }
+
+    public function Dependencias_All_cod()//Muestras todas las dependencias 
+    {
+        $Dependencia = new modelDependencia();
+        $Data        = $Dependencia->Dependencias_all_cod();
         return $Data;
     }
 

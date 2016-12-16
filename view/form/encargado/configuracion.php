@@ -2,7 +2,7 @@
 include_once '../../../controller/form.php';
 $form->ruta       = '../../../view/plantillas';
 $form->plantilla  = 'encargado.php';
-$form->parametros = array('titulo' => 'Ingreso de peticiones', 'active' => array('id_configuracion'), 'css' => array('css/source/custom-small-screens.css', 'css/source/registro_solicitudes.css'), 'js' => array('js/source/encargado_configuration.js'));
+$form->parametros = array('titulo' => 'Ingreso de peticiones', 'active' => array('id_configuracion'), 'css' => array('css/source/custom-small-screens.css', 'css/source/registro_solicitudes.css'), 'js' => array('js/source/encargado_configuration.js','js/source/tinymce.js'));
 $form->create(__FILE__);
 ?>
 <#--content_ini--#>
