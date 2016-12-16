@@ -14,6 +14,10 @@ class modelUsuario
         $usuario->Load("id_usuario={$id_usuario}");
         if (!is_null($usuario->id_usuario))
         {
+            if (trim($correo) === '')
+            {
+                $correo = NULL;
+            }
             $usuario->nombre          = $nombre;
             $usuario->apellido        = $apellido;
             $usuario->documento       = $documento;

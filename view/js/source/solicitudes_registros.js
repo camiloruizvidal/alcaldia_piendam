@@ -17,6 +17,27 @@ $(function () {
         Actualizar();
     });
 });
+function view_edit(id_user)
+{
+    $('.views').html('');
+    $.ajax({
+        url: 'Ajax/AjaxVerSolicitud.php',
+        data: {id_solicitud: id_user},
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            $.each(data, function (index, value)
+            {
+                $('#view_' + index).html(value);
+            });
+            $('#myModalView').modal('show');
+        },
+        complete: function (jqXHR, textStatus) {
+            loadingstop();
+        }
+    });
+}
 function actualizar_cambios()
 {
     $('#cambio_solicitud').submit(function (e)

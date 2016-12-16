@@ -215,17 +215,24 @@ FROM
                     `usuario`.`documento`,
                     `usuario`.`telefono`,
                     `usuario`.`celular`,
-                    `usuario`.`correo`,
+                    COALESCE(`usuario`.`correo`,'NN') as correo,
                     `usuario`.`login`,
                     `peticion`.`id_tipo`,
                     `usuario`.`id_usuario_tipo`,
                     `usuario`.`nombre`,
-                    `peticion`.`id_vereda`
+                    `peticion`.`id_vereda`,
+                    `peticion`.`descripcion`,
+                    `dependencia_tipo`.`descripcion` as descripcion_tipo_dependencia,
+                     `vereda`.`nombre` as nombre_vereda,
+                     `peticion`.`respuesta`
                 FROM
                     `peticion_files`
                     RIGHT OUTER JOIN `peticion` ON (`peticion_files`.`id_peticion` = `peticion`.`id_peticion`)
                     INNER JOIN `usuario` ON (`peticion`.`id_usuario` = `usuario`.`id_usuario`)
                     INNER JOIN `peticion_estado` ON (`peticion`.`id_estado` = `peticion_estado`.`id_peticion_estado`)
+                    INNER JOIN `dependencia_tipo` ON (`peticion`.`id_tipo` = `dependencia_tipo`.`id_dependencia_tipo`)
+                    INNER JOIN `dependencia` ON (`dependencia_tipo`.`id_dependencia` = `dependencia`.`id_dependencia`)
+                    INNER JOIN `vereda` ON (`peticion`.`id_vereda` = `vereda`.`id_vereda`)
                 WHERE
                     `peticion`.`id_peticion` = ?";
         $con = App::$base;
@@ -314,6 +321,7 @@ FROM
                     INNER JOIN `peticion_estado` ON (`peticion`.`id_estado` = `peticion_estado`.`id_peticion_estado`)
                     INNER JOIN `dependencia_tipo` ON (`peticion`.`id_tipo` = `dependencia_tipo`.`id_dependencia_tipo`)
                 {$wheresqlfilter}
+                GROUP BY `peticion`.`id_peticion`
                 ORDER BY
                 date(`peticion`.`fecha_hora`) DESC,
                 HOUR(`peticion`.`fecha_hora`) DESC";

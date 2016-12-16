@@ -16,7 +16,6 @@ class modelFiles
 
     function GuardarArchivoDB($url, $id_peticion, $tipo_archivo)
     {
-
         $peticion               = atable::Make('peticion_files');
         $peticion->url          = $url;
         $peticion->tipo_archivo = $tipo_archivo;

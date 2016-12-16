@@ -110,6 +110,7 @@ class controlPetidion
 
         $html = '<div class="btn-group" role="group" style="position: relative; display: flex;vertical-align: middle;">';
         $html .= '<button onclick="edit(' . $id_peticion . ');" class="form form-control btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button>';
+        $html .= '<button onclick="view_edit(' . $id_peticion . ');" class="form form-control btn btn-success"><i class="glyphicon glyphicon-search"></i></button>';
         $html .= '</div>';
         return $html;
     }

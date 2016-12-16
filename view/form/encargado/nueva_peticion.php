@@ -262,9 +262,14 @@ $form->create(__FILE__);
 
                         <div class="col-md-12">
                             <label>Descripcion</label>
-                            <textarea id="update_detalle" style="height: 100px !important;" name="update_detalle" class="form form-control" rows="20" placeholder="Ingrese la descripción de la solicitud"></textarea>
+                            <textarea id="update_descripcion" style="height: 100px !important;" readonly="true" class="form form-control" rows="20" placeholder="Ingrese la descripción de la solicitud"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <label>Respuesta</label>
+                            <textarea id="update_respuesta" style="height: 100px !important;" name="update_respuesta" class="form form-control" rows="20" placeholder="Ingrese la descripción de la solicitud"></textarea>
                         </div>
                         <input type="hidden" name="update_id_peticion" id="update_id_peticion"/>
+                        <input type="hidden" name="update_id_estado" id="update_id_estado"/>
                     </form>
                 </div>
             </div>
@@ -274,6 +279,77 @@ $form->create(__FILE__);
                 </div>
                 <div class="col-xs-6">
                     <button type="button" id="actualizar" class="btn btn-primary form form-control">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModalView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header"  style="color: #fff;background-color: #5cb85c;border-color: #4cae4c;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Detalle</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="col-md-6">
+                        <label>Fecha de solicitud</label>
+                        <div id="view_fecha_hora" class="views"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Estado de solicitud</label>
+                        <div id="view_estado" class="views"></div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label>Documento</label>
+                        <div id="view_documento" class="views">"</div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label>Nombre</label>
+                        <div id="view_nombre" class="views"></div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label>Apellido</label>
+                        <div id="view_apellido" class="views"></div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label>Celular</label>
+                        <div id="view_celular" class="views"></div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label>Telefono</label>
+                        <div id="view_telefono" class="views"></div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label>E-mail</label>
+                        <div id="view_correo" class="views"></div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label>tipo de petición</label>
+                        <div id="view_descripcion_tipo_dependencia" class="views"></div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label>Vereda</label>
+                        <div id="view_nombre_vereda" class="views">
+                        </div>
+                    </div> 
+                    <div class="col-md-12">
+                        <div id="view_url" class="views"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Descripcion</label>
+                        <div id="view_descripcion" class="views"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Respuesta</label>
+                        <div id="view_respuesta" class="views"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn-success form form-control" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
