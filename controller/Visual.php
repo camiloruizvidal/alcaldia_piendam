@@ -253,7 +253,7 @@ class Visual
             {
                 if ($key == $id)
                 {
-                    @$html            = '<button class="btn btn-' . $type . '" type="button" onclick="' . $function . '(\'' . $Datos[$i][$key] . '\')' . '"><span class="' . $NameComponent . '"></span></button>';
+                    @$html            = '<button class="btn btn-' . $type . ' form form-control" type="button" onclick="' . $function . '(\'' . $Datos[$i][$key] . '\')' . '"><span class="' . $NameComponent . '"></span></button>';
                     $Datos[$i][$key] = $html;
                 }
             }

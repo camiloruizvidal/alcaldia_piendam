@@ -24,6 +24,7 @@ $Validar->UsuarioCorrecto(array('Solicitantes', 'Administrador', 'Encargado'));
         <title><#--titulo--#></title>
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="http://codeseven.github.io/toastr/build/toastr.min.css">
         <link rel="stylesheet" href="css/jquery/jquery-ui.min.css">
         <link rel="stylesheet" href="css/jquery/jquery-ui.theme.min.css">
         <link rel="stylesheet" href="css/source/plantilla_admin.css">
@@ -31,6 +32,7 @@ $Validar->UsuarioCorrecto(array('Solicitantes', 'Administrador', 'Encargado'));
         <#--css--#>
         <script type="text/javascript" src="js/jquery/jquery.js"></script>
         <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="http://codeseven.github.io/toastr/build/toastr.min.js">
         <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/source/plantilla_admin.js"></script>
         <script type="text/javascript" src="js/source/functions.js"></script>

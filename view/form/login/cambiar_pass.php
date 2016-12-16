@@ -7,6 +7,7 @@ $form->parametros = array('titulo' => 'Ingreso de peticiones', 'css' => array('c
 $form->create(__FILE__);
 ?>
 <#--content_ini--#>
+
 <script>
     $(function ()
     {
@@ -24,7 +25,48 @@ $form->create(__FILE__);
                 dataType: 'json',
                 success: function (data)
                 {
-                    console.log(data);
+                    if (data.SiValida)
+                    {
+                        Command: toastr["success"]("Se realizaron los cambios con éxito", "Guardado")
+                        toastr.options = {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-bottom-left",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        }
+                    } else
+                    {
+                        Command: toastr["error"]("No se pudo realizar la asignacion al auxilar", "Error")
+
+                        toastr.options = {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-bottom-left",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        }
+                    }
                 }
             });
         });
@@ -40,27 +82,27 @@ $form->create(__FILE__);
                 <div class="container-fluid">
                     <div class="col-xs-6">
                         <label>Nombre</label>
-                        <input value="<?php echo $_SESSION['nombre'];?>" class="form form-control" id="nombre" readonly="readonly">
+                        <input value="<?php echo $_SESSION['nombre']; ?>" class="form form-control" id="nombre" readonly="readonly">
                     </div>
                     <div class="col-xs-6">
                         <label>Apellido</label>
-                        <input value="<?php echo $_SESSION['apellido'];?>" class="form form-control" id="apellido" readonly="readonly">
+                        <input value="<?php echo $_SESSION['apellido']; ?>" class="form form-control" id="apellido" readonly="readonly">
                     </div>
                     <div class="col-xs-6">
                         <label>Documento</label>
-                        <input value="<?php echo $_SESSION['documento'];?>" class="form form-control" id="documento" readonly="readonly">
+                        <input value="<?php echo $_SESSION['documento']; ?>" class="form form-control" id="documento" readonly="readonly">
                     </div>
                     <div class="col-xs-6">
                         <label>Telefono</label>
-                        <input value="<?php echo $_SESSION['telefono'];?>" required="true" class="form form-control" id="telefono" name="telefono">
+                        <input value="<?php echo $_SESSION['telefono']; ?>" required="true" class="form form-control" id="telefono" name="telefono">
                     </div>
                     <div class="col-xs-6">
                         <label>Celular</label>
-                        <input value="<?php echo $_SESSION['celular'];?>" required="true" class="form form-control" id="celular" name="celular">
+                        <input value="<?php echo $_SESSION['celular']; ?>" required="true" class="form form-control" id="celular" name="celular">
                     </div>
                     <div class="col-xs-6">
                         <label>Correo</label>
-                        <input type="email" value="<?php echo $_SESSION['correo'];?>" required="true" class="form form-control" id="correo" name="correo">
+                        <input type="email" value="<?php echo $_SESSION['correo']; ?>" required="true" class="form form-control" id="correo" name="correo">
                     </div>
                     <div class="col-xs-3">
                         <label>Login</label>

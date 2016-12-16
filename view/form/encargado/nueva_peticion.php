@@ -25,15 +25,15 @@ $form->create(__FILE__);
             <form id="NuevaSolicitud" action="Ajax/AjaxGuardarSolicitud.php" method="post">
                 <div class="panel-body filtros-solicitud">
                     <div class="form-group col-md-12">
-                        <label>Documento</label>
+                        <label><span style="color:red;font-size: 12px;font-family: cursive;">*</span> Documento</label>
                         <input required type="text" name="documento" id="documento" class="form form-control">
                     </div> 
                     <div class="form-group col-md-12">
-                        <label>Nombre</label>
+                        <label><span style="color:red;font-size: 12px;font-family: cursive;">*</span> Nombre</label>
                         <input required type="text" name="nombre" id="nombre" class="form form-control">
                     </div> 
                     <div class="form-group col-md-12">
-                        <label>Apellido</label>
+                        <label><span style="color:red;font-size: 12px;font-family: cursive;">*</span> Apellido</label>
                         <input required type="text" name="apellido" id="apellido" class="form form-control">
                     </div> 
                     <div class="form-group col-md-12">
