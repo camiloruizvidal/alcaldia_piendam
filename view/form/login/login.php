@@ -1,3 +1,10 @@
+<?php
+if(isset($_GET['cerrarsesion']))
+{
+	@session_start();
+	$_SESSION=NULL;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>

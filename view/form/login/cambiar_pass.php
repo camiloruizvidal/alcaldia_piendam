@@ -1,179 +1,95 @@
 	<?php
-
 @session_start();
-
 include_once '../../../controller/form.php';
-
 $form->ruta       = '../../../view/plantillas';
-
 $form->plantilla  = 'configuration.php';
-
 $form->parametros = array('titulo' => 'Ingreso de peticiones', 'css' => array('css/source/custom-small-screens.css'));
-
 $form->create(__FILE__);
-
 ?>
-
 <#--content_ini--#>
 
-
-
 <script>
-
     $(function ()
-
     {
-
         validar();
-
     });
-
+	function desloguear()
+	{
+		windows.location.href="logout";
+	}
     function validar()
-
     {
-
         $('#editar_usuario').submit(function (e)
-
         {
-
             e.preventDefault();
-
             $.ajax({
-
                 url: 'Ajax/AjaxCambiarDatosUsuario.php',
-
                 type: 'POST',
-
                 data: $(this).serialize(),
-
                 dataType: 'json',
-
                 success: function (data)
-
                 {
-
                     if (data.SiValida)
-
                     {
-
                         Command: toastr["success"]("Se realizaron los cambios con éxito", "Guardado")
-
                         toastr.options = {
-
                             "closeButton": false,
-
                             "debug": false,
-
                             "newestOnTop": false,
-
                             "progressBar": false,
-
                             "positionClass": "toast-bottom-left",
-
                             "preventDuplicates": false,
-
                             "onclick": null,
-
                             "showDuration": "300",
-
                             "hideDuration": "1000",
-
                             "timeOut": "5000",
-
                             "extendedTimeOut": "1000",
-
                             "showEasing": "swing",
-
                             "hideEasing": "linear",
-
                             "showMethod": "fadeIn",
-
                             "hideMethod": "fadeOut"
-
                         }
-
                     } else
-
                     {
-
                         Command: toastr["error"]("No se pudo realizar la asignacion al auxilar", "Error")
 
-
-
                         toastr.options = {
-
                             "closeButton": false,
-
                             "debug": false,
-
                             "newestOnTop": false,
-
                             "progressBar": false,
-
                             "positionClass": "toast-bottom-left",
-
                             "preventDuplicates": false,
-
                             "onclick": null,
-
                             "showDuration": "300",
-
                             "hideDuration": "1000",
-
                             "timeOut": "5000",
-
                             "extendedTimeOut": "1000",
-
-                            "showEasing": "swing",
-
+                           "showEasing": "swing",
                             "hideEasing": "linear",
-
                             "showMethod": "fadeIn",
-
                             "hideMethod": "fadeOut"
-
                         }
-
                     }
-
                 }
-
             });
-
         });
-
     }
-
 </script>
-
 <div class="container">
-
     <form id="editar_usuario"> 
-
         <div class="panel panel-success">
-
             <div class="panel-heading">
-
                 Datos de usuario
-
             </div>
-
             <div class="panel-body">
-
                 <div class="container-fluid">
-
                     <div class="col-xs-6">
-
                         <label>Nombre</label>
-
                         <input value="<?php echo $_SESSION['nombre']; ?>" class="form form-control" id="nombre" readonly="readonly">
-
                     </div>
-
                     <div class="col-xs-6">
-
                         <label>Apellido</label>
-
                         <input value="<?php echo $_SESSION['apellido']; ?>" class="form form-control" id="apellido" readonly="readonly">
 
                     </div>
