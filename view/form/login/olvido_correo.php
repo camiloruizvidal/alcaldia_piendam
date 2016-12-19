@@ -1,8 +1,8 @@
 <?php
-if(isset($_GET['cerrarsesion']))
+if (isset($_GET['cerrarsesion']))
 {
-	@session_start();
-	$_SESSION=NULL;
+    @session_start();
+    $_SESSION = NULL;
 }
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,9 @@ if(isset($_GET['cerrarsesion']))
         <link rel="stylesheet" href="./css/source/login.css">
         <script src='js/jquery/jquery.js'></script>
         <script src="js/source/plantilla_admin.js"></script>
-        <script src="js/source/login.js"></script>
+        <link rel="stylesheet" href="http://codeseven.github.io/toastr/build/toastr.min.css">
+        <script src="http://codeseven.github.io/toastr/build/toastr.min.js"></script>
+        <script src="js/source/relogin.js"></script>
         <style></style>
     </head>
     <body>
@@ -25,16 +27,13 @@ if(isset($_GET['cerrarsesion']))
             <form id="form" class="login-form">
                 <center><a href="http://piendamo-cauca.gov.co/Paginas/default.aspx" target="_blank"><img src="img/Piendamo-Tunia-Foot.png"></a></center>
                 <div class="form-group ">
-                    <input type="text" class="form-control" placeholder="Numero de documento" id="UserName">
-                    <i class="fa fa-user"></i>
+                    <input type="text" class="form-control" required="true" placeholder="Numero de documento" name="cc" id="cc">
                 </div>
-                <div class="form-group log-status">
-                    <input type="password" class="form-control" placeholder="Contraseña" id="Passwod">
-                    <i class="fa fa-lock"></i>
+                <div class="form-group ">
+                    <input type="text" class="form-control" required="true" placeholder="Correo electrónico" name="mail" id="mail">
+                    <i>Si usted ha cambiado la contraseña el sistema le exijio un correo de validación.</i>
                 </div>
-                <span class="alert">Nombre de usuario o contraseña incorrecta</span>
-                <a class="link" href="relogin">¿Olvidó su contraseña?</a>
-                <button type="submit" class="log-btn" >Iniciar</button>    
+                <button type="submit" class="log-btn" >Validar</button> 
             </form>
         </div>
     </body>

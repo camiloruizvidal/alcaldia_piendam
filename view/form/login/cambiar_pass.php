@@ -1,4 +1,4 @@
-	<?php
+<?php
 @session_start();
 include_once '../../../controller/form.php';
 $form->ruta       = '../../../view/plantillas';
@@ -13,10 +13,10 @@ $form->create(__FILE__);
     {
         validar();
     });
-	function desloguear()
-	{
-		windows.location.href="logout";
-	}
+    function desloguear()
+    {
+        windows.location.href = "logout";
+    }
     function validar()
     {
         $('#editar_usuario').submit(function (e)
@@ -65,7 +65,7 @@ $form->create(__FILE__);
                             "hideDuration": "1000",
                             "timeOut": "5000",
                             "extendedTimeOut": "1000",
-                           "showEasing": "swing",
+                            "showEasing": "swing",
                             "hideEasing": "linear",
                             "showMethod": "fadeIn",
                             "hideMethod": "fadeOut"
@@ -122,7 +122,7 @@ $form->create(__FILE__);
 
                         <label>Correo</label>
 
-                        <input type="email" value="<?php echo $_SESSION['correo']; ?>" class="form form-control" id="correo" name="correo">
+                        <input required="true" type="email" value="<?php echo $_SESSION['correo']; ?>" class="form form-control" id="correo" name="correo">
 
                     </div>
 
