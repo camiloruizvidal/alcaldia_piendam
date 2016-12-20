@@ -1,8 +1,9 @@
 <?php
-if(isset($_GET['cerrarsesion']))
+if (isset($_GET['cerrarsesion']))
 {
-	@session_start();
-	$_SESSION=NULL;
+    @session_start();
+    $_SESSION = NULL;
+    session_destroy();
 }
 ?>
 <!DOCTYPE html>
