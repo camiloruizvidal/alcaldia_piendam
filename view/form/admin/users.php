@@ -95,7 +95,7 @@ $form->create(__FILE__);
     <div class="col-md-4">
         <div class="panel panel-success">
             <div class="panel-heading">
-                Ususarios
+                Usuarios
             </div>
             <form id="form">
                 <div class="panel-body">

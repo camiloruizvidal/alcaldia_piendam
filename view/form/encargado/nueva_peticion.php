@@ -6,12 +6,6 @@ $form->parametros = array('titulo' => 'Ingreso de peticiones', 'active' => array
 $form->create(__FILE__);
 ?>
 <#--content_ini--#>
-<?php
-@session_start();
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
-?>
 <style>
     .modal-footer
     {
