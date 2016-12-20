@@ -126,7 +126,7 @@ class modelUsuario
         return FALSE;
     }
 
-    public function newusuario($nombre, $apellido, $documento, $telefono, $celular, $correo, $login = '', $pass = '', $id_usuario_tipo = '')
+    public function newusuario($nombre, $apellido, $documento, $telefono, $celular, $correo, $login = '', $pass = '', $id_usuario_tipo = '',$id_dependencia=NULL)
     {
         $usuario = atable::Make('usuario');
         $usuario->Load("documento = {$documento}");
