@@ -1,6 +1,6 @@
 .navbar-default{
-	background-image:none !important;
-	background-color:#00A14B !important;
+    background-image:none !important;
+    background-color:#00A14B !important;
 }
 .navbar-default .navbar-nav > li > a {
     color: #FFF !important;
@@ -9,8 +9,8 @@
 
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a{
-	background-color:#131313 !important;
-	background-image:none !important;
+    background-color:#131313 !important;
+    background-image:none !important;
 }
 
 
@@ -18,197 +18,197 @@
 
 
 
-    .filtros{
-        font-weight:bold;
-    }
-    .filtros button{
-        padding-right: 3px;
-        padding-left: 3px;
-        /* height: 28px; */
-        padding-top: 0px;
-        /* border-bottom-width: 6px; */
-        margin-bottom: 2px;
-        /* border-bottom-width: 1px; */
-        height: 20px;
-    }
-    .filtros label{
-        font-size: 12px;
-    }
-    .filtros .form-group{
-        padding-right: 0px;
-        padding-left: 0px;
-        height: 60px;
-    }
-    .filtros .form-control, .filtros-solicitud .form-control{
-        font-size: 12px;
-    }
-    .filtros-solicitud label{
-        font-size: 12px;
-    }
-    .filtros-solicitud .form-group{
-        padding-right: 0px;
-        padding-left: 0px;
-        height: 40px;
-    }
-    #table-data{
-        font-size: small;
-    }
-    .estado_Atendido{
-        display:-webkit-box;
-        font-weight:bold;
-        color:#FFF;
-        background-color: yellowgreen;
-        padding: 0px 5px 0px 5px;
-        border-radius: 8px;
-    }
-    .estado_No_atendido{
-        display:-webkit-box;
-        font-weight:bold;
-        color:#FFF;
-        background-color: black;
-        padding: 0px 5px 0px 5px;
-        border-radius: 8px;
-    }
-    .estado_Pendiente{
-        display:-webkit-box;
-        font-weight:bold;
-        color:#000;
-        background-color: #E6F1FA;
-        padding: 0px 5px 0px 5px;
-        border-radius: 8px;
-    }
+.filtros{
+    font-weight:bold;
+}
+.filtros button{
+    padding-right: 3px;
+    padding-left: 3px;
+    /* height: 28px; */
+    padding-top: 0px;
+    /* border-bottom-width: 6px; */
+    margin-bottom: 2px;
+    /* border-bottom-width: 1px; */
+    height: 20px;
+}
+.filtros label{
+    font-size: 12px;
+}
+.filtros .form-group{
+    padding-right: 0px;
+    padding-left: 0px;
+    height: 60px;
+}
+.filtros .form-control, .filtros-solicitud .form-control{
+    font-size: 12px;
+}
+.filtros-solicitud label{
+    font-size: 12px;
+}
+.filtros-solicitud .form-group{
+    padding-right: 0px;
+    padding-left: 0px;
+    height: 40px;
+}
+#table-data{
+    font-size: small;
+}
+.estado_Atendido{
+    display:-webkit-box;
+    font-weight:bold;
+    color:#FFF;
+    background-color: yellowgreen;
+    padding: 0px 5px 0px 5px;
+    border-radius: 8px;
+}
+.estado_No_atendido{
+    display:-webkit-box;
+    font-weight:bold;
+    color:#FFF;
+    background-color: black;
+    padding: 0px 5px 0px 5px;
+    border-radius: 8px;
+}
+.estado_Pendiente{
+    display:-webkit-box;
+    font-weight:bold;
+    color:#000;
+    background-color: #E6F1FA;
+    padding: 0px 5px 0px 5px;
+    border-radius: 8px;
+}
 
-    .estado_Confirmada{
-        display:-webkit-box;
-        font-weight:bold;
-        color:#FFF;
-        background-color: blue;
-        padding: 0px 5px 0px 5px;
-        border-radius: 8px;
-    }
-    .estado_En_sala_de_espera{
-        display:-webkit-box;
-        font-weight:bold;
-        color:#FFF;
-        background-color: orange;
-        padding: 0px 5px 0px 5px;
-        border-radius: 8px;
-    }
-    .estado_Cancelada{
-        display:-webkit-box;
-        font-weight:bold;
-        color:#FFF;
-        background-color: red;
-        padding: 0px 5px 0px 5px;
-        border-radius: 8px;
-    }
+.estado_Confirmada{
+    display:-webkit-box;
+    font-weight:bold;
+    color:#FFF;
+    background-color: blue;
+    padding: 0px 5px 0px 5px;
+    border-radius: 8px;
+}
+.estado_En_sala_de_espera{
+    display:-webkit-box;
+    font-weight:bold;
+    color:#FFF;
+    background-color: orange;
+    padding: 0px 5px 0px 5px;
+    border-radius: 8px;
+}
+.estado_Cancelada{
+    display:-webkit-box;
+    font-weight:bold;
+    color:#FFF;
+    background-color: red;
+    padding: 0px 5px 0px 5px;
+    border-radius: 8px;
+}
 
-    div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all{
-        z-index:1151 !important;
-    }
-    .container-fluid-x {
-        padding-right: 0px;
-        padding-left: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-    }
-    .btn {
-        padding: 1px 5px;
-    }
-    .col-md-3 {
-        padding-left: 1px;
-        padding-right: 1px;
-    }
-    .col-md-9 {
-        padding-left: 1px;
-        padding-right: 1px;
-    }
-    .col-xs-3 {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-    .col-xs-9 {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-    .ui-tabs .ui-tabs-panel{
-        padding-right: 0px;
-        padding-left: 0px;
-    }
-    .ui-widget-header {
-        border: 1px solid #337AB7 !important;
-        background: none;
-        background-color: #337AB7 !important;
-    }
-    .ui-widget-content{
-        background: #FFFFFF;
-    }
-    .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{
-        color:#4D8BC0;
-    }
-    .ui-tabs-panel .ui-widget-content .ui-corner-bottom{
-        display: block;
-        padding-bottom: 0px;
-    }
-    #tabs{
-        padding-left: 0px;
-        padding-right: 0px;
-        padding-top: 0px;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-    }
-    .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
-        border-bottom-right-radius: 0px;
-    }
-    .ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
-        border-bottom-left-radius: 0px;
-    }
-    #tabs-1{
-        display: block;padding-bottom: 0px;
-    }
-    section #content {
-        left: 4px;
-    }
-    .form-control {
-        height: 34px !important;
-    }
-    .navbar-nav {
-        font-size: 16px !important;
-    }
+div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all{
+    z-index:1151 !important;
+}
+.container-fluid-x {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.btn {
+    padding: 1px 5px;
+}
+.col-md-3 {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.col-md-9 {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.col-xs-3 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.col-xs-9 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.ui-tabs .ui-tabs-panel{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.ui-widget-header {
+    border: 1px solid #D5EBCD !important;
+    background: none;
+    background-color: #D5EBCD !important;
+}
+.ui-widget-content{
+    background: #FFFFFF;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{
+    color:#00A14B;
+}
+.ui-tabs-panel .ui-widget-content .ui-corner-bottom{
+    display: block;
+    padding-bottom: 0px;
+}
+#tabs{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 0px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-left-radius: 0px;
+}
+#tabs-1{
+    display: block;padding-bottom: 0px;
+}
+section #content {
+    left: 4px;
+}
+.form-control {
+    height: 34px !important;
+}
+.navbar-nav {
+    font-size: 16px !important;
+}
 
-    .navbar-brand {
-        padding: 4px 15px !important;
-    }
-    .navbar-default {
-        background-color: #337AB7;
-        border-color: #337ab7;
-    }
-    .navbar-default .navbar-toggle .icon-bar {
-        background-color: #777;
-    }
-    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+.navbar-brand {
+    padding: 4px 15px !important;
+}
+.navbar-default {
+    background-color: #337AB7;
+    border-color: #337ab7;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #777;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #777;
+    background-color: #2B679B;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #777;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #505242;
+    background-color: transparent;
+}
+@media (max-width: 767px)
+{
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #777;
-        background-color: #2B679B;
     }
-    .navbar-default .navbar-nav > li > a {
-        color: #777;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #337AB7;
+}
+@media (max-width: 767px)
+{
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #777 !important;
     }
-    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-        color: #505242;
-        background-color: transparent;
-    }
-    @media (max-width: 767px)
-    {
-        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-            color: #777;
-        }
-    }
-    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-        background-color: #337AB7;
-    }
-    @media (max-width: 767px)
-    {
-        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-            color: #777 !important;
-        }
-    }
+}
