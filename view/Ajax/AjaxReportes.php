@@ -20,13 +20,14 @@ if ($_POST)
             $temp['fecha_hora_solicitud'],
             $temp['vereda'],
             $temp['fecha_hora_respuesta'],
-            $temp['estado'],
-            $temp['peticion']);
+            $temp['estado']);
     }
-    echo $Render->Tabla($data, '', array('#', 'Detalle', 'Depencia', 'Tipo<br/>solicitud', 'Ciudadano', 'Fecha y hora<br/>de llegada', 'Vereda', 'Hora de respuesta', 'Estado', 'Descripcion',), 'table table-hover', '', TRUE);
+    echo $Render->Tabla($data, '', array('#', 'Detalle', 'Depencia', 'Tipo<br/>solicitud', 'Ciudadano', 'Hora<br/>Llegada', 'Vereda', 'Hora de respuesta', 'Estado'), 'table table-hover', 'myTable', TRUE);
 }
 if ($_GET)
 {
+    include_once '../../model/modelConfig.php';
+    $Enc  = new modelConfig();
     extract($_GET);
     $data = array();
     $Data = $Rep->VerSolicitudes($id_filt_ciudadano, $Fechaini, $Fechafin, $Estado, $id_dependencia, $filt_id_tipo);
@@ -41,5 +42,6 @@ if ($_GET)
             $temp['estado'],
             $temp['peticion']);
     }
+    echo $Enc->VerValue('formato_admin') . '<br>';
     echo $Render->Tabla($data, '', array('#', 'Depencia', 'Tipo<br/>solicitud', 'Ciudadano', 'Fecha y hora<br/>de llegada', 'Vereda', 'Hora de respuesta', 'Estado', 'Descripcion',), 'table table-hover', '', TRUE);
 }

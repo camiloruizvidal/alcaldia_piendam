@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -12,8 +11,8 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li id="id_peticiones"><a href="reportes">Reportes</a></li>
-                <li id="admin_users"><a href="admin_users">Administrador de usuarios</a></li>
-                <li id="admin_dependencias"><a href="dependencia">Administrador de dependencias</a></li>
+                <li id="admin_users"><a href="admin_users">Usuarios</a></li>
+                <li id="admin_dependencias"><a href="dependencia">Dependencias</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">                  
@@ -23,6 +22,7 @@
                         ?> <i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>                            
                     <ul class="dropdown-menu">
                         <li><a href="configuration"><i class="glyphicon glyphicon-cog"></i> configurar</a></li>
+                        <li><a href="info_cab"><i class="glyphicon glyphicon-print"></i> Cabecera</a></li>
                         <li><a href="logout"><i class="glyphicon glyphicon-off"></i> Cerrar sesion</a></li>
                     </ul>
                 </li>

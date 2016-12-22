@@ -624,13 +624,16 @@ class Visual
             }
             $WIDTH = 'WIDTH="' . $WIDTH . '"';
             $tabla = "<table$Border$Id$Class $WIDTH>\n";
+                $tabla .= "<thead>" . "\n";
             if ($Encabezado != '')
             {
                 foreach ($Encabezado as $Temp)
                 {
-                    $tabla .= "<th><center>$Temp</center></th>";
+                    $tabla .= "<th><center>$Temp</center></th>" . "\n";
                 }
             }
+                $tabla .= "</thead>" . "\n";
+                $tabla .= "<tbody>" . "\n";
             foreach ($Datos as $key => $Temp1)
             {
                 $colores = '';
@@ -638,23 +641,24 @@ class Visual
                 {
                     $colores = ' style="background-color: ' . $Temp1[$color] . ';" ';
                 }
-                $tabla .= '<tr valign="top"' . $colores . '>';
+                $tabla .= ' <tr valign="top"' . $colores . '>' . "\n";
 
                 if ($Contar)
                 {
                     $count++;
-                    $tabla .= "<td valign=top align=\"center\">$count</td>";
+                    $tabla .= "     <td valign=top align=\"center\">$count</td>" . "\n";
                 }
                 foreach ($Temp1 as $i => $Temp2)
                 {
                     if ($color !== $i)
                     {
-                        $tabla .= "<td valign=top align=\"{$Aling}\">$Temp2</td>";
+                        $tabla .= "     <td valign=top align=\"{$Aling}\">$Temp2</td>" . "\n";
                     }
                 }
-                $tabla .= '</tr>';
+                $tabla .= ' </tr>' . "\n";
             }
-            $tabla .= "</table>";
+            $tabla .= "<tbody>" . "\n";
+            $tabla .= "</table>" . "\n";
             return $tabla;
         }
     }

@@ -230,6 +230,7 @@ function CargarSolicitudes()
         {
             $('#imp_inf').attr('href', $('#form_search').attr('action') + '?' + $('#form_search').serialize());
             $('#solicitudes_table').html(data);
+            $('#myTable').DataTable();
         },
         complete: function () {
             loadingstop();

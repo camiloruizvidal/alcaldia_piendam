@@ -2,7 +2,7 @@
 include_once '../../../controller/form.php';
 $form->ruta       = '../../../view/plantillas';
 $form->plantilla  = 'reportes.php';
-$form->parametros = array('titulo' => 'Ingreso de peticiones', 'active' => array('id_peticiones'), 'css' => array('css/source/custom-small-screens.css', 'css/source/registro_solicitudes.css'), 'js' => array('js/jquery/jquery.printPage.js', 'js/source/reportes.js'));
+$form->parametros = array('titulo' => 'Ingreso de peticiones', 'active' => array('id_peticiones'), 'css' => array('css/source/custom-small-screens.css', 'css/source/registro_solicitudes.css', '//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css'), 'js' => array('js/jquery/jquery.printPage.js', '//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js', 'js/source/reportes.js'));
 $form->create(__FILE__);
 ?>
 <#--content_ini--#>
