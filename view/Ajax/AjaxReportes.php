@@ -22,7 +22,7 @@ if ($_POST)
             $temp['fecha_hora_respuesta'],
             $temp['estado']);
     }
-    echo $Render->Tabla($data, '', array('#', 'Detalle', 'Depencia', 'Tipo<br/>solicitud', 'Ciudadano', 'Hora<br/>Llegada', 'Vereda', 'Hora de respuesta', 'Estado'), 'table table-hover', 'myTable', TRUE);
+    echo $Render->Tabla($data, '', array('#', 'Detalle', 'Dependencia', 'Tipo<br/>solicitud', 'Ciudadano', 'Hora<br/>Llegada', 'Vereda', 'Hora de respuesta', 'Estado'), 'table table-hover', 'myTable', TRUE);
 }
 if ($_GET)
 {
@@ -43,5 +43,5 @@ if ($_GET)
             $temp['peticion']);
     }
     echo $Enc->VerValue('formato_admin') . '<br>';
-    echo $Render->Tabla($data, '', array('#', 'Depencia', 'Tipo<br/>solicitud', 'Ciudadano', 'Fecha y hora<br/>de llegada', 'Vereda', 'Hora de respuesta', 'Estado', 'Descripcion',), 'table table-hover', '', TRUE);
+    echo $Render->Tabla($data, '', array('#', 'Dependencia', 'Tipo<br/>solicitud', 'Ciudadano', 'Fecha y hora<br/>de llegada', 'Vereda', 'Hora de respuesta', 'Estado', 'Descripcion',), 'table table-hover', '', TRUE);
 }
