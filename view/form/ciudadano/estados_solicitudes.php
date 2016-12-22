@@ -8,7 +8,7 @@ $form->create(__FILE__);
 <#--content_ini--#>
 <div class="col-md-4">
     <div class="panel panel-success">
-        <form id="form_filtr" action='Ajax/AjaxVerPeticionesUsuario.php' method="post">
+        <form id="form_filtr" action='Ajax/AjaxVerPeticionesUsuario' method="post">
 
             <div class="panel-heading">
                 Filtrar

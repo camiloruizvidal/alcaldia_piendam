@@ -5,7 +5,7 @@ function submit_form()
         e.preventDefault();
         loadingstart();
         $.ajax({
-            url: 'Ajax/AjaxLogin.php',
+            url: 'Ajax/AjaxLogin',
             data: {login: $('#UserName').val(), password: $('#Passwod').val()},
             type: 'POST',
             dataType: 'json',

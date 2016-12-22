@@ -22,7 +22,7 @@ $form->create(__FILE__);
             <li><a href="#tabs-2">Buscar Solicitud</a></li>
         </ul>
         <div id="tabs-2">
-            <form id="form_search" action="Ajax/AjaxReportes.php">
+            <form id="form_search" action="Ajax/AjaxReportes">
                 <div class="panel-body filtros">
                     <div class="form-group col-md-12">
                         <label><button class="btn btn-danger" type="button" onclick="Limpiar('filt_ciudadano');Limpiar('id_filt_ciudadano');"><span class="glyphicon glyphicon-remove"></span></button>Ciudadano</label>
@@ -90,6 +90,7 @@ $form->create(__FILE__);
                 <h4 class="modal-title" id="myModalLabel">Detalle</h4>
             </div>
             <div class="modal-body">
+                <div id="detalle_reporte"></div>
                 <div id="info_reporte"></div>
             </div>
             <div class="modal-footer">

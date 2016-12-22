@@ -10,7 +10,7 @@ $form->create(__FILE__);
     $(function ()
     {
         $.ajax({
-            url: 'Ajax/AjaxVerLogs.php',
+            url: 'Ajax/AjaxVerLogs',
             type: 'POST',
             data: {Fechainicio: '', Fechafin: '', id_user: ''},
             success: function (data) {

@@ -21,4 +21,18 @@ class modelConfig
         }
     }
 
+    public function NewValue($name, $value)
+    {
+        
+    }
+
+    public function EditValue($name, $values)
+    {
+        $value        = atable::Make('config');
+        $value->Load("name = '{$name}'");
+        $value->name  = $name;
+        $value->value = $values;
+        $value->Save();
+    }
+
 }

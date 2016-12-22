@@ -9,16 +9,16 @@ $form->create(__FILE__);
 <script>
     function ConsultarUsuarios()
     {
-        $('#Users').load('Ajax/AjaxVerUsuarios.php');
-        $('#id_dependencia').load('Ajax/AjaxVerDependencias.php');
-        $('#update_id_dependencia').load('Ajax/AjaxVerDependencias.php');
+        $('#Users').load('Ajax/AjaxVerUsuarios');
+        $('#id_dependencia').load('Ajax/AjaxVerDependencias');
+        $('#update_id_dependencia').load('Ajax/AjaxVerDependencias');
     }
     $(function ()
     {
         $('#dependencia').hide();
         ConsultarUsuarios();
         $.ajax({
-            url: 'Ajax/AjaxSelectTiposUsuarios.php',
+            url: 'Ajax/AjaxSelectTiposUsuarios',
             success: function (data) {
                 data = data.replace('<option value="-1">SELECCIONE</option>', '');
                 $('#update_id_usuario_tipo').html(data);
@@ -28,7 +28,7 @@ $form->create(__FILE__);
         $('#actualizar').click(function ()
         {
             $.ajax({
-                url: 'Ajax/AjaxActualizarUsuario.php',
+                url: 'Ajax/AjaxActualizarUsuario',
                 data: $('#update_form_update').serialize(),
                 type: 'POST',
                 success: function ()
@@ -52,7 +52,7 @@ $form->create(__FILE__);
         {
             e.preventDefault();
             $.ajax({
-                url: 'Ajax/AjaxGuardarUsuario.php',
+                url: 'Ajax/AjaxGuardarUsuario',
                 data: $(this).serialize(),
                 type: 'POST',
                 success: function ()
@@ -66,7 +66,7 @@ $form->create(__FILE__);
     function editar(id)
     {
         $.ajax({
-            url: 'Ajax/AjaxVerUsuario.php',
+            url: 'Ajax/AjaxVerUsuario',
             type: 'POST',
             dataType: 'json',
             data: {id: id},

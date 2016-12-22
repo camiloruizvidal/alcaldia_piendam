@@ -19,7 +19,7 @@ $(function () {
 function Detalle(id)
 {
     $.ajax({
-        url: 'Ajax/AjaxVerCambiosEstados.php',
+        url: 'Ajax/AjaxVerCambiosEstados',
         type: 'POST',
         data: {id_peticion: id},
         success: function (data)
@@ -32,21 +32,17 @@ function Detalle(id)
 }
 function dependencias()
 {
-    $('#id_dependencia').load('Ajax/AjaxCargarDependencias_reportes.php');
+    $('#id_dependencia').load('Ajax/AjaxCargarDependencias_reportes');
 }
 function VerVeredas()
 {
-    $('#id_vereda').load('Ajax/AjaxSelectVeredas.php');
-    $('#update_id_vereda').load('Ajax/AjaxSelectVeredas.php');
-    $.ajax({url: 'Ajax/AjaxNewTipoPeticion.php',
-        success: function (data) {
-
-        }});
+    $('#id_vereda').load('Ajax/AjaxSelectVeredas');
+    $('#update_id_vereda').load('Ajax/AjaxSelectVeredas');
 }
 function data_select()
 {
     $.ajax({
-        url: 'Ajax/AjaxTiposSolicitudesReportes.php',
+        url: 'Ajax/AjaxTiposSolicitudesReportes',
         async: false,
         type: 'POST',
         data: {id_dependencia: $('#id_dependencia').val()},
@@ -59,7 +55,7 @@ function data_select()
 function Solicitantes()
 {
     $('#filt_ciudadano').autocomplete({
-        source: 'Ajax/AjaxSolicitantesAutocomplete.php',
+        source: 'Ajax/AjaxSolicitantesAutocomplete',
         select: function (e, data)
         {
             $('#id_filt_ciudadano').val(data.item.id_usuario);
@@ -71,7 +67,7 @@ function Actualizar()
 {
     loadingstart();
     $.ajax({
-        url: 'Ajax/AjaxActualizarSolicitud.php',
+        url: 'Ajax/AjaxActualizarSolicitud',
         data: $('#solicitudes').serialize(),
         type: 'POST',
         success: function (data, textStatus, jqXHR) {
@@ -89,7 +85,7 @@ function remove(id)
 function edit(id)
 {
     $.ajax({
-        url: 'Ajax/AjaxVerSolicitud.php',
+        url: 'Ajax/AjaxVerSolicitud',
         data: {id_solicitud: id},
         type: 'POST',
         dataType: 'json',
@@ -129,7 +125,7 @@ function VerCiudadanos()
 function VerEstadosAgenda()
 {
     $.ajax({
-        url: "Ajax/AjaxCargarEstadosSolicitudes.php",
+        url: "Ajax/AjaxCargarEstadosSolicitudes",
         success: function (data)
         {
             $('#Estado').html(data);
@@ -142,7 +138,7 @@ function CardarDocumento()
     $('#documento').change(function () {
         loadingstart();
         $.ajax({
-            url: "Ajax/AjaxVerCiudadano.php",
+            url: "Ajax/AjaxVerCiudadano",
             data: {documento: $('#documento').val()},
             type: 'POST',
             dataType: 'json',
@@ -223,7 +219,7 @@ function FiltrarHoy()
 function CargarSolicitudes()
 {
     $.ajax({
-        url: 'Ajax/AjaxReportes.php',
+        url: 'Ajax/AjaxReportes',
         data: $('#form_search').serialize(),
         type: 'POST',
         success: function (data)

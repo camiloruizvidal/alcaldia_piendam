@@ -50,9 +50,9 @@ class modelReportes
                     `dependencia`.`nombre` AS `dependencia`,
                     `dependencia_tipo`.`descripcion` AS `tipo_dependencia`,
                     CONCAT_WS(\' \', `usuario`.`nombre`, `usuario`.`apellido`, `usuario`.`documento`) AS `ciudadano`,
-                    `peticion`.`fecha_hora` AS `fecha_hora_solicitud`,
+                    DATE_FORMAT(`peticion`.`fecha_hora`,\'%d-%m-%Y %h:%i %p\') AS `fecha_hora_solicitud`,
                     `vereda`.`nombre` AS `vereda`,
-                    COALESCE(`peticion`.`fecha_hora_respuestad`,\'No hay respuesta\') as fecha_hora_respuesta,
+                    COALESCE(DATE_FORMAT(`peticion`.`fecha_hora_respuestad`,\'%d-%m-%Y %h:%i %p\'),\'No hay respuesta\') as fecha_hora_respuesta,
                     `peticion_estado`.`descripcion` AS `estado`,
                     SUBSTRING(`peticion`.`descripcion` FROM 1 FOR 10) as peticion
                 FROM

@@ -307,21 +307,19 @@ FROM
             $wheresqlfilter = 'WHERE ' . "\n" . implode(' AND ' . "\n", $WhereSQL);
         }
         $sql = "SELECT 
-                  `peticion`.`id_peticion`,
-                  COALESCE(`peticion_files`.`url`,'#') as url,
-                  CONCAT_WS(' ', `usuario`.`nombre`, `usuario`.`apellido`) AS `ciudadano`,
-                  `peticion`.`fecha_hora`,
-                  `peticion_estado`.`descripcion` AS `estado`,
-                  CONCAT(SUBSTRING(`peticion`.`descripcion` FROM 1 FOR 10),'...') AS `detalle`,
-                `dependencia_tipo`.`descripcion` as dependencia_tipo_descripcion
-                FROM
-                  `peticion_files`
-                    RIGHT OUTER JOIN `peticion` ON (`peticion_files`.`id_peticion` = `peticion`.`id_peticion`)
+                    `peticion`.`id_peticion`,
+                    `peticion_url_files`(`peticion`.`id_peticion`) AS `url`,
+                    CONCAT_WS(' ', `usuario`.`nombre`, `usuario`.`apellido`) AS `ciudadano`,
+                    `peticion`.`fecha_hora`,
+                    `peticion_estado`.`descripcion` AS `estado`,
+                    CONCAT(SUBSTRING(`peticion`.`descripcion` FROM 1 FOR 10), '...') AS `detalle`,
+                    `dependencia_tipo`.`descripcion` AS `dependencia_tipo_descripcion`
+               FROM
+                    `peticion`
                     INNER JOIN `usuario` ON (`peticion`.`id_usuario` = `usuario`.`id_usuario`)
                     INNER JOIN `peticion_estado` ON (`peticion`.`id_estado` = `peticion_estado`.`id_peticion_estado`)
                     INNER JOIN `dependencia_tipo` ON (`peticion`.`id_tipo` = `dependencia_tipo`.`id_dependencia_tipo`)
                 {$wheresqlfilter}
-                GROUP BY `peticion`.`id_peticion`
                 ORDER BY
                 date(`peticion`.`fecha_hora`) DESC,
                 HOUR(`peticion`.`fecha_hora`) DESC";

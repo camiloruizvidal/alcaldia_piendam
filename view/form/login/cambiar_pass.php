@@ -23,7 +23,7 @@ $form->create(__FILE__);
         {
             e.preventDefault();
             $.ajax({
-                url: 'Ajax/AjaxCambiarDatosUsuario.php',
+                url: 'Ajax/AjaxCambiarDatosUsuario',
                 type: 'POST',
                 data: $(this).serialize(),
                 dataType: 'json',

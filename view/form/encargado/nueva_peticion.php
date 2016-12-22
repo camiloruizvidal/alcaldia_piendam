@@ -2,7 +2,7 @@
 include_once '../../../controller/form.php';
 $form->ruta       = '../../../view/plantillas';
 $form->plantilla  = 'encargado.php';
-$form->parametros = array('titulo' => 'Ingreso de peticiones', 'active' => array('id_peticiones'), 'css' => array('css/source/custom-small-screens.css', 'css/source/registro_solicitudes.css'), 'js' => array('js/jquery/jquery.printPage.js', 'js/source/solicitudes_registros.js'));
+$form->parametros = array('titulo' => 'Ingreso de peticiones', 'active' => array('id_peticiones'), 'css' => array('css/source/custom-small-screens.css', '//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css', 'css/source/registro_solicitudes.css'), 'js' => array('js/jquery/jquery.printPage.js', '//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js', 'js/source/solicitudes_registros.js'));
 $form->create(__FILE__);
 ?>
 <#--content_ini--#>
@@ -22,7 +22,7 @@ $form->create(__FILE__);
             <li><a href="#tabs-2">Buscar Solicitud</a></li>
         </ul>
         <div id="tabs-1">
-            <form id="NuevaSolicitud" action="Ajax/AjaxGuardarSolicitud.php" method="post">
+            <form id="NuevaSolicitud" action="Ajax/AjaxGuardarSolicitud" method="post">
                 <div class="panel-body filtros-solicitud">
                     <div class="form-group col-md-12">
                         <label><span style="color:red;font-size: 12px;font-family: cursive;">*</span> Documento</label>
@@ -73,7 +73,7 @@ $form->create(__FILE__);
             </form>        
         </div>
         <div id="tabs-2">
-            <form id="form_search" action="Ajax/AjaxSolicitudes.php">
+            <form id="form_search" action="Ajax/AjaxSolicitudes">
                 <div class="panel-body filtros">
                     <div class="form-group col-md-12">
                         <label><button class="btn btn-danger" type="button" onclick="Limpiar('filt_ciudadano');Limpiar('id_filt_ciudadano');"><span class="glyphicon glyphicon-remove"></span></button>Ciudadano</label>

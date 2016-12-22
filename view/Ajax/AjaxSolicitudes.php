@@ -7,10 +7,10 @@ $peti   = new controlPetidion();
 
 if ($_POST)
 {
-	if(!isset($_POST['filt_id_tipo']))
-	{
-		exit('No hay tipos de peticiones registrada. Dirijase a <a href="sistema">configuracion</a>.');
-	}
+    if (!isset($_POST['filt_id_tipo']))
+    {
+        exit('No hay tipos de peticiones registrada. Dirijase a <a href="sistema">configuracion</a>.');
+    }
 #=======================================VALIDACION DE SEGURIDAD=======================================#
     include_once '../../controller/security_session.php';
     validarPost(array("id_filt_ciudadano", "filt_ciudadano", "Fechaini", "Fechafin", "Estado", 'filt_id_tipo'));
@@ -18,7 +18,7 @@ if ($_POST)
 
     extract($_POST);
     $Datos = $peti->VerPeticiones($id_filt_ciudadano, $filt_ciudadano, $Fechaini, $Fechafin, $Estado, $filt_id_tipo);
-    echo $Render->Tabla($Datos, '', array('#', 'editar', 'Archivo', 'Ciudadano', 'Fecha hora', 'Estado', 'Resumen', 'Peticion'), 'table table-hover', '', true);
+    echo $Render->Tabla($Datos, '', array('#', 'editar', 'Archivo', 'Ciudadano', 'Fecha hora', 'Estado', 'Resumen', 'Peticion'), 'table table-hover', 'myTable', true);
 }
 if ($_GET)
 {
@@ -32,7 +32,7 @@ if ($_GET)
     {
         $data[] = array($temp['ciudadano'], $temp['fecha_hora'], $temp['estado'], $temp['dependencia_tipo_descripcion']);
     }
-    echo $Encabezado.'<br>';
+    echo $Encabezado . '<br>';
     if ($filt_ciudadano != '')
     {
         echo '<strong>Ciudadano</strong>: ' . $filt_ciudadano . '<br>';

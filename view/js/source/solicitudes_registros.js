@@ -21,7 +21,7 @@ function view_edit(id_user)
 {
     $('.views').html('');
     $.ajax({
-        url: 'Ajax/AjaxVerSolicitud.php',
+        url: 'Ajax/AjaxVerSolicitud',
         data: {id_solicitud: id_user},
         type: 'POST',
         dataType: 'json',
@@ -45,7 +45,7 @@ function actualizar_cambios()
         e.preventDefault();
         loadingstart();
         $.ajax({
-            url: 'Ajax/AjaxCambiarEstadoPeticion.php',
+            url: 'Ajax/AjaxCambiarEstadoPeticion',
             type: 'POST',
             data: $(this).serialize(),
             success: function (data) {
@@ -65,17 +65,13 @@ function CambioEstado()
 }
 function VerVeredas()
 {
-    $('#id_vereda').load('Ajax/AjaxSelectVeredas.php');
-    $('#update_id_vereda').load('Ajax/AjaxSelectVeredas.php');
-    $.ajax({url: 'Ajax/AjaxNewTipoPeticion.php',
-        success: function (data) {
-
-        }});
+    $('#id_vereda').load('Ajax/AjaxSelectVeredas');
+    $('#update_id_vereda').load('Ajax/AjaxSelectVeredas');
 }
 function data_select()
 {
     $.ajax({
-        url: 'Ajax/AjaxTiposSolicitudes.php',
+        url: 'Ajax/AjaxTiposSolicitudes',
         async: false,
         success: function (data) {
             $('#update_id_tipo').html(data);
@@ -87,7 +83,7 @@ function data_select()
 function Solicitantes()
 {
     $('#filt_ciudadano').autocomplete({
-        source: 'Ajax/AjaxSolicitantesAutocomplete.php',
+        source: 'Ajax/AjaxSolicitantesAutocomplete',
         select: function (e, data)
         {
             $('#id_filt_ciudadano').val(data.item.id_usuario);
@@ -99,7 +95,7 @@ function Actualizar()
 {
     loadingstart();
     $.ajax({
-        url: 'Ajax/AjaxActualizarSolicitud.php',
+        url: 'Ajax/AjaxActualizarSolicitud',
         data: $('#solicitudes').serialize(),
         type: 'POST',
         success: function (data, textStatus, jqXHR) {
@@ -117,7 +113,7 @@ function remove(id)
 function edit(id)
 {
     $.ajax({
-        url: 'Ajax/AjaxVerSolicitud.php',
+        url: 'Ajax/AjaxVerSolicitud',
         data: {id_solicitud: id},
         type: 'POST',
         dataType: 'json',
@@ -157,7 +153,7 @@ function VerCiudadanos()
 function VerEstadosAgenda()
 {
     $.ajax({
-        url: "Ajax/AjaxCargarEstadosSolicitudes.php",
+        url: "Ajax/AjaxCargarEstadosSolicitudes",
         success: function (data)
         {
             $('#Estado').html(data);
@@ -171,7 +167,7 @@ function CardarDocumento()
     $('#documento').change(function () {
         loadingstart();
         $.ajax({
-            url: "Ajax/AjaxVerCiudadano.php",
+            url: "Ajax/AjaxVerCiudadano",
             data: {documento: $('#documento').val()},
             type: 'POST',
             dataType: 'json',
@@ -253,13 +249,14 @@ function FiltrarHoy()
 function CargarSolicitudes()
 {
     $.ajax({
-        url: 'Ajax/AjaxSolicitudes.php',
+        url: 'Ajax/AjaxSolicitudes',
         data: $('#form_search').serialize(),
         type: 'POST',
         success: function (data)
         {
             $('#imp_inf').attr('href', $('#form_search').attr('action') + '?' + $('#form_search').serialize());
             $('#solicitudes_table').html(data);
+            $('#myTable').DataTable();
         },
         complete: function () {
             loadingstop();

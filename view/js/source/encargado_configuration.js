@@ -86,7 +86,7 @@ function setEncabezado()
 {
     loadingstart();
     console.log(tinyMCE.get('encabezado_format').getContent());
-    $.ajax({url: 'Ajax/AjaxSetValueConfig.php',
+    $.ajax({url: 'Ajax/AjaxSetValueConfig',
         type: 'POST',
         data: {name: 'formato_encabezado', value: tinyMCE.get('encabezado_format').getContent()},
         success: function (data) {
@@ -99,7 +99,7 @@ function setEncabezado()
 }
 function VerEncabezado()
 {
-    $.ajax({url: 'Ajax/AjaxNameConfig.php',
+    $.ajax({url: 'Ajax/AjaxNameConfig',
         type: 'POST',
         data: {name: 'formato_encabezado'},
         dataType: 'json',
@@ -109,7 +109,7 @@ function VerEncabezado()
 }
 function TiposPeticiones()
 {
-    $.ajax({url: 'Ajax/AjaxViewTipoPeticion.php',
+    $.ajax({url: 'Ajax/AjaxViewTipoPeticion',
         type: 'POST',
         success: function (data) {
             $('#data_peticiones_tipo').html(data);
@@ -119,7 +119,7 @@ function nuevotipopeticion()
 {
     $('#new_peticion').click(function ()
     {
-        $.ajax({url: 'Ajax/AjaxNewTipoPeticion.php',
+        $.ajax({url: 'Ajax/AjaxNewTipoPeticion',
             data: {nombre_tipo_peticion: $('#nombre_tipo_peticion').val()},
             type: 'POST',
             success: function (data) {
@@ -133,7 +133,7 @@ function nuevotipopeticion()
 function editar(id)
 {
     loadingstart();
-    $.ajax({url: 'Ajax/AjaxSaveTipoPeticion.php',
+    $.ajax({url: 'Ajax/AjaxSaveTipoPeticion',
         data: {
             nombre_tipo_peticion: $('#edit_tipo_' + id).val(),
             id: id

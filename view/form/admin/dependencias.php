@@ -14,7 +14,7 @@ $form->create(__FILE__);
     function CargarDependencias()
     {
         $.ajax({
-            url: 'Ajax/AjaxListadoDependencias.php',
+            url: 'Ajax/AjaxListadoDependencias',
             success: function (data) {
                 $('#ListadoDependencias').html(data);
             }
@@ -26,7 +26,7 @@ $form->create(__FILE__);
         {
             loadingstart()
             $.ajax({
-                url: 'Ajax/AjaxGuardarNewDependencias.php',
+                url: 'Ajax/AjaxGuardarNewDependencias',
                 type: 'POST',
                 data: {
                     descripcion: $('#descripcion').val(),
@@ -46,7 +46,7 @@ $form->create(__FILE__);
     {
        loadingstart();
         $.ajax({
-            url: 'Ajax/AjaxEditDependencias.php',
+            url: 'Ajax/AjaxEditDependencias',
             type: 'POST',
             data: {
                 descripcion: $('#descripcion_' + id).val(),

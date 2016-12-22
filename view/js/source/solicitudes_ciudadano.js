@@ -38,18 +38,18 @@ function fechas()
 }
 function Dependencias()
 {
-    $('#id_dependencia_tipo').load('Ajax/AjaxCargarDependencias_user.php');
+    $('#id_dependencia_tipo').load('Ajax/AjaxCargarDependencias_user');
 }
 function Estados()
 {
-    $('#id_estado').load('Ajax/AjaxCargarEstadosSolicitudes.php');
+    $('#id_estado').load('Ajax/AjaxCargarEstadosSolicitudes');
 }
 function Tipos()
 {
     $('#id_dependencia_tipo').change(function ()
     {
         $.ajax({
-            url: 'Ajax/AjaxTiposDependencia.php',
+            url: 'Ajax/AjaxTiposDependencia',
             data: {id_tipo: $(this).val()},
             type: 'POST',
             success: function (data) {
